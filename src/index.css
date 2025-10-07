@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+/* Global design tokens */
+:root {
+  --brand-primary: #0f172a; /* slate-900 */
+  --brand-accent: #d97706; /* amber-700 */
+  --brand-gold: #c4a251; /* refined gold */
+  --surface: #ffffff;
+  --surface-muted: #f6f5f4;
+}
+
+html { font-family: Inter, system-ui, sans-serif; }
+.font-serif { font-family: 'Playfair Display', serif; }
+
+/* Reusable UI helpers */
+.btn-primary { @apply px-4 py-2 rounded-lg bg-gray-900 text-white hover:bg-gray-800 transition; }
+.btn-ghost { @apply px-4 py-2 rounded-lg bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 transition; }
+.card-soft { @apply bg-white rounded-2xl shadow-md border border-gray-100; }
+.card-strong { @apply bg-white rounded-2xl shadow-xl border border-gray-100; }
+
+/* Animations */
+.animate-fade-in { animation: fadeIn .6s ease-out both; }
+.animate-slide-up { animation: slideUp .6s ease-out both; }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes slideUp { from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+/* Light theme background (milk white) */
+.bg-milk { background-color: #FAF7F2; }

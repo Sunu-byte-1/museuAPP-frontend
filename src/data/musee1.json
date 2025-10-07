@@ -1,0 +1,43 @@
+{
+  "id": "musee1",
+  "title": "Visite principale du musée",
+  "floor": "RDC",
+  "scenes": [
+    {
+      "id": "salle-1",
+      "title": "Salle 1",
+      "room": "Salle 1",
+      "floor": "RDC",
+      "description": "Entrée principale, œuvres historiques",
+      "panorama": "/panoramas/room1.jpg",
+      "thumb": "/panoramas/room1.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 2", "sceneId": "salle-2" }
+      ]
+    },
+    {
+      "id": "salle-2",
+      "title": "Salle 2",
+      "room": "Salle 2",
+      "floor": "RDC",
+      "description": "Collection moderne",
+      "panorama": "/panoramas/room2.jpg",
+      "thumb": "/panoramas/room2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": -90, "type": "scene", "text": "Retour Salle 1", "sceneId": "salle-1" }
+      ]
+    },
+    {
+      "id": "salle-3",
+      "title": "Salle 3",
+      "room": "Salle 3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room3.jpg",
+      "thumb": "/panoramas/room3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1", "sceneId": "salle-1" }
+      ]
+    }
+  ]
+}

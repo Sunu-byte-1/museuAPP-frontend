@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "La Joconde",
+    "artist": "Léonard de Vinci",
+    "year": 1503,
+    "description": "Portrait de Lisa Gherardini, épouse de Francesco del Giocondo, réalisé par Léonard de Vinci entre 1503 et 1519.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80",
+    "category": "Peinture",
+    "room": "Salle Renaissance",
+    "audioGuide": "https://example.com/audio/joconde.mp3",
+    "qrCode": "QR001",
+    "price": 15,
+    "isAvailable": true
+  },
+  {
+    "id": 2,
+    "title": "La Nuit étoilée",
+    "artist": "Vincent van Gogh",
+    "year": 1889,
+    "description": "Tableau représentant la vue depuis la chambre de l'artiste à l'asile de Saint-Paul-de-Mausole.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80",
+    "category": "Peinture",
+    "room": "Salle Impressionnisme",
+    "audioGuide": "https://example.com/audio/nuit-etoilee.mp3",
+    "qrCode": "QR002",
+    "price": 12,
+    "isAvailable": true
+  },
+  {
+    "id": 3,
+    "title": "Les Demoiselles d'Avignon",
+    "artist": "Pablo Picasso",
+    "year": 1907,
+    "description": "Tableau marquant le début du cubisme, représentant cinq prostituées dans un bordel de Barcelone.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80",
+    "category": "Peinture",
+    "room": "Salle Cubisme",
+    "audioGuide": "https://example.com/audio/demoiselles-avignon.mp3",
+    "qrCode": "QR003",
+    "price": 18,
+    "isAvailable": true
+  },
+  {
+    "id": 4,
+    "title": "Vénus de Milo",
+    "artist": "Inconnu",
+    "year": -130,
+    "description": "Statue en marbre de la déesse Aphrodite, découverte sur l'île de Milos en 1820.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80",
+    "category": "Sculpture",
+    "room": "Salle Antiquité",
+    "audioGuide": "https://example.com/audio/venus-milo.mp3",
+    "qrCode": "QR004",
+    "price": 10,
+    "isAvailable": true
+  },
+  {
+    "id": 5,
+    "title": "Le Cri",
+    "artist": "Edvard Munch",
+    "year": 1893,
+    "description": "Tableau expressionniste représentant une figure androgyne dans un moment d'angoisse existentielle.",
+    "image": "https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=80",
+    "category": "Peinture",
+    "room": "Salle Expressionnisme",
+    "audioGuide": "https://example.com/audio/le-cri.mp3",
+    "qrCode": "QR005",
+    "price": 14,
+    "isAvailable": true
+  }
+]

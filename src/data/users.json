@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "email": "admin@musee.com",
+    "password": "admin123",
+    "role": "admin",
+    "firstName": "Admin",
+    "lastName": "Musée",
+    "phone": "+221 33 123 45 67"
+  },
+  {
+    "id": 2,
+    "email": "user@example.com",
+    "password": "user123",
+    "role": "user",
+    "firstName": "Jean",
+    "lastName": "Dupont",
+    "phone": "+221 33 987 65 43"
+  },
+  {
+    "id": 3,
+    "email": "marie@example.com",
+    "password": "marie123",
+    "role": "user",
+    "firstName": "Marie",
+    "lastName": "Martin",
+    "phone": "+221 33 555 12 34"
+  }
+]

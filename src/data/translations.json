@@ -1,0 +1,238 @@
+{
+  "fr": {
+    "nav": {
+      "home": "Accueil",
+      "tickets": "Acheter un billet",
+      "shop": "Boutique",
+      "login": "Se connecter",
+      "logout": "Se déconnecter",
+      "admin": "Administration"
+    },
+    "home": {
+      "welcome": "Bienvenue au Musée",
+      "subtitle": "Découvrez l'histoire, l'art et la culture à travers nos collections uniques.",
+      "explore": "Explorer les œuvres",
+      "visit": "Visite virtuelle",
+      "tickets": "Acheter des billets"
+    },
+    "tickets": {
+      "title": "Acheter un billet",
+      "selectType": "Sélectionnez le type de billet",
+      "quantity": "Quantité",
+      "total": "Total",
+      "purchase": "Acheter",
+      "types": {
+        "adult": "Adulte",
+        "student": "Étudiant",
+        "child": "Enfant",
+        "senior": "Senior",
+        "family": "Famille",
+        "annual": "Pass Annuel"
+      }
+    },
+    "artwork": {
+      "title": "Détails de l'œuvre",
+      "artist": "Artiste",
+      "year": "Année",
+      "category": "Catégorie",
+      "room": "Salle",
+      "description": "Description",
+      "audioGuide": "Guide audio",
+      "scanQR": "Scanner QR",
+      "back": "Retour"
+    },
+    "login": {
+      "title": "Connexion",
+      "email": "Email",
+      "password": "Mot de passe",
+      "login": "Se connecter",
+      "register": "S'inscrire",
+      "forgot": "Mot de passe oublié ?"
+    },
+    "admin": {
+      "dashboard": "Tableau de bord",
+      "artworks": "Œuvres d'art",
+      "addArtwork": "Ajouter une œuvre",
+      "tickets": "Billets",
+      "users": "Utilisateurs",
+      "statistics": "Statistiques"
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "tickets": "Buy tickets",
+      "shop": "Shop",
+      "login": "Login",
+      "logout": "Logout",
+      "admin": "Administration"
+    },
+    "home": {
+      "welcome": "Welcome to the Museum",
+      "subtitle": "Discover history, art and culture through our unique collections.",
+      "explore": "Explore artworks",
+      "visit": "Virtual visit",
+      "tickets": "Buy tickets"
+    },
+    "tickets": {
+      "title": "Buy tickets",
+      "selectType": "Select ticket type",
+      "quantity": "Quantity",
+      "total": "Total",
+      "purchase": "Purchase",
+      "types": {
+        "adult": "Adult",
+        "student": "Student",
+        "child": "Child",
+        "senior": "Senior",
+        "family": "Family",
+        "annual": "Annual Pass"
+      }
+    },
+    "artwork": {
+      "title": "Artwork details",
+      "artist": "Artist",
+      "year": "Year",
+      "category": "Category",
+      "room": "Room",
+      "description": "Description",
+      "audioGuide": "Audio guide",
+      "scanQR": "Scan QR",
+      "back": "Back"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email",
+      "password": "Password",
+      "login": "Login",
+      "register": "Register",
+      "forgot": "Forgot password?"
+    },
+    "admin": {
+      "dashboard": "Dashboard",
+      "artworks": "Artworks",
+      "addArtwork": "Add artwork",
+      "tickets": "Tickets",
+      "users": "Users",
+      "statistics": "Statistics"
+    }
+  },
+  "es": {
+    "nav": {
+      "home": "Inicio",
+      "tickets": "Comprar entradas",
+      "shop": "Tienda",
+      "login": "Iniciar sesión",
+      "logout": "Cerrar sesión",
+      "admin": "Administración"
+    },
+    "home": {
+      "welcome": "Bienvenido al Museo",
+      "subtitle": "Descubre la historia, el arte y la cultura a través de nuestras colecciones únicas.",
+      "explore": "Explorar obras",
+      "visit": "Visita virtual",
+      "tickets": "Comprar entradas"
+    },
+    "tickets": {
+      "title": "Comprar entradas",
+      "selectType": "Selecciona el tipo de entrada",
+      "quantity": "Cantidad",
+      "total": "Total",
+      "purchase": "Comprar",
+      "types": {
+        "adult": "Adulto",
+        "student": "Estudiante",
+        "child": "Niño",
+        "senior": "Senior",
+        "family": "Familia",
+        "annual": "Pase Anual"
+      }
+    },
+    "artwork": {
+      "title": "Detalles de la obra",
+      "artist": "Artista",
+      "year": "Año",
+      "category": "Categoría",
+      "room": "Sala",
+      "description": "Descripción",
+      "audioGuide": "Guía de audio",
+      "scanQR": "Escanear QR",
+      "back": "Volver"
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "email": "Email",
+      "password": "Contraseña",
+      "login": "Iniciar sesión",
+      "register": "Registrarse",
+      "forgot": "¿Olvidaste la contraseña?"
+    },
+    "admin": {
+      "dashboard": "Panel de control",
+      "artworks": "Obras de arte",
+      "addArtwork": "Añadir obra",
+      "tickets": "Entradas",
+      "users": "Usuarios",
+      "statistics": "Estadísticas"
+    }
+  },
+  "wo": {
+    "nav": {
+      "home": "Kanam",
+      "tickets": "Jënd ticket",
+      "shop": "Boutique",
+      "login": "Seet",
+      "logout": "Wàññi",
+      "admin": "Njàngale"
+    },
+    "home": {
+      "welcome": "Jërejëf ci Musée bi",
+      "subtitle": "Seet ci dund, xaral ak aada ci biir sunu yoon yi.",
+      "explore": "Seet ci jëf yi",
+      "visit": "Seet ci virtual",
+      "tickets": "Jënd ticket"
+    },
+    "tickets": {
+      "title": "Jënd ticket",
+      "selectType": "Tànn lu ticket bi",
+      "quantity": "Làkk",
+      "total": "Lëpp",
+      "purchase": "Jënd",
+      "types": {
+        "adult": "Mag",
+        "student": "Taleeb",
+        "child": "Xale",
+        "senior": "Mag bu mag",
+        "family": "Jëkkër",
+        "annual": "Pass bu at"
+      }
+    },
+    "artwork": {
+      "title": "Lëkku jëf bi",
+      "artist": "Jëfkat",
+      "year": "At",
+      "category": "Yoon",
+      "room": "Péen",
+      "description": "Lëkku",
+      "audioGuide": "Njàngale bu audio",
+      "scanQR": "Seet QR",
+      "back": "Dellu"
+    },
+    "login": {
+      "title": "Seet",
+      "email": "Email",
+      "password": "Baatu woon",
+      "login": "Seet",
+      "register": "Jëkkëndikoo",
+      "forgot": "Baatu woon ñuñu?"
+    },
+    "admin": {
+      "dashboard": "Panal",
+      "artworks": "Jëf yi",
+      "addArtwork": "Yokk jëf",
+      "tickets": "Ticket yi",
+      "users": "Jëfandikukat yi",
+      "statistics": "Xeetu"
+    }
+  }
+}

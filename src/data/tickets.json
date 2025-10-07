@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "type": "Adulte",
+    "price": 15,
+    "description": "Billet d'entrée adulte - Accès à toutes les expositions",
+    "duration": "1 jour",
+    "isAvailable": true
+  },
+  {
+    "id": 2,
+    "type": "Étudiant",
+    "price": 10,
+    "description": "Billet étudiant - Accès à toutes les expositions (sur présentation de la carte étudiant)",
+    "duration": "1 jour",
+    "isAvailable": true
+  },
+  {
+    "id": 3,
+    "type": "Enfant",
+    "price": 8,
+    "description": "Billet enfant (6-17 ans) - Accès à toutes les expositions",
+    "duration": "1 jour",
+    "isAvailable": true
+  },
+  {
+    "id": 4,
+    "type": "Senior",
+    "price": 12,
+    "description": "Billet senior (65+) - Accès à toutes les expositions",
+    "duration": "1 jour",
+    "isAvailable": true
+  },
+  {
+    "id": 5,
+    "type": "Famille",
+    "price": 35,
+    "description": "Billet famille (2 adultes + 2 enfants) - Accès à toutes les expositions",
+    "duration": "1 jour",
+    "isAvailable": true
+  },
+  {
+    "id": 6,
+    "type": "Pass Annuel",
+    "price": 80,
+    "description": "Pass annuel - Accès illimité pendant 1 an",
+    "duration": "1 an",
+    "isAvailable": true
+  }
+]
