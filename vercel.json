@@ -16,6 +16,6 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://https://mcn-owcd.onrender.com/api"
+    "VITE_API_URL": "https://museumapp-restapi.onrender.com/api"
   }
 }
