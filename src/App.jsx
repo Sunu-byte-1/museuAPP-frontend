@@ -30,7 +30,9 @@ import ArtworkDetail from './pages/user/ArtworkDetail'
 import PurchaseTicket from './pages/user/PurchaseTicket'
 import Boutique from './pages/user/BoutiqueEnhanced'
 import ScanArtwork from './pages/user/ScanArtworkEnhanced'
+import HomePage from './pages/user/Virtuel';
 import VirtualVisit from './pages/user/VirtualVisitEnhanced'
+import DiscoverArtworks from './pages/user/DiscoverObjects'
 import Histoire from './pages/Histoire'
 
 // Admin pages
@@ -38,6 +40,8 @@ import AdminLogin from './pages/admin/adminLogin'
 import AdminDashboard from './pages/admin/adminDashboard'
 import AddArtwork from './pages/admin/AddArtwork'
 import ArtworkList from './pages/admin/ArtworkList'
+
+
 
 function App() {
   return (
@@ -54,8 +58,11 @@ function App() {
                   <Route path="/billet" element={<PurchaseTicket />} />
                   <Route path="/boutique" element={<Boutique />} />
                   <Route path="/scan" element={<ScanArtwork />} />
+                  <Route path='/HomePage' element={<HomePage />} />
                   <Route path="/visite-virtuelle/:id" element={<VirtualVisit />} />
+                  <Route path='/decouvrir' element={<DiscoverArtworks />} />
                   <Route path="/histoire" element={<Histoire />} />
+
                   <Route path="/artwork/:id" element={<ArtworkDetail />} />
                   {/* User routes */}
                   <Route path="/login" element={<UserLogin />} />

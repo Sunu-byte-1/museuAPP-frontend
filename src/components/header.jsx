@@ -107,7 +107,7 @@ import React, { useEffect, useState } from "react";
               <Link to="/billet" className="hover:text-[#b08b4f] transition-colors duration-00 text-lg">
                 Acheter un billet
               </Link>
-                <Link to="/visite-virtuelle/1" className="hover:text-[#b08b4f] transition-colors duration-00 text-lg">
+                <Link to="/HomePage" className="hover:text-[#b08b4f] transition-colors duration-00 text-lg">
                     Visite virtuelle
                 </Link>
               <Link to="/boutique" className="hover:text-[#b08b4f] transition-colors duration-00 text-lg">

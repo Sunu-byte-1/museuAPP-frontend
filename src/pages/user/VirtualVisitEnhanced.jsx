@@ -73,61 +73,7 @@ export default function VirtualVisitEnhanced() {
       try {
         setLoading(true);
         
-        // Charger les données de la visite (remplacer par fetch du JSON)
-        // const mockData = {
-        //   id: "musee1",
-        //   title: "Visite principale du musée",
-        //   floor: "RDC",
-        //   scenes: [
-        //     {
-        //       id: "salle-1",
-        //       title: "Salle Renaissance",
-        //       room: "Salle 1",
-        //       floor: "RDC",
-        //       description: "Découvrez les chefs-d'œuvre de la Renaissance européenne",
-        //       panorama: "https://images.unsplash.com/photo-1566127444026-86e998bb2ecc?w=2000&h=1000&fit=crop",
-        //       thumb: "https://images.unsplash.com/photo-1566127444026-86e998bb2ecc?w=400&h=200&fit=crop",
-        //       artworkIds: [1, 2, 3],
-        //       hotSpots: [
-        //         { pitch: -5, yaw: 90, type: "scene", text: "Aller à Salle Impressionnisme", sceneId: "salle-2" },
-        //         { pitch: -10, yaw: 0, type: "artwork", text: "La Naissance de Vénus", artworkId: 1 },
-        //         { pitch: -15, yaw: 45, type: "artwork", text: "Portrait de Mona Lisa", artworkId: 2 },
-        //         { pitch: -12, yaw: -45, type: "artwork", text: "La Cène", artworkId: 3 }
-        //       ]
-        //     },
-        //     {
-        //       id: "salle-2",
-        //       title: "Salle Impressionnisme",
-        //       room: "Salle 2",
-        //       floor: "RDC",
-        //       description: "Explorez les œuvres des maîtres impressionnistes",
-        //       panorama: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=2000&h=1000&fit=crop",
-        //       thumb: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&h=200&fit=crop",
-        //       artworkIds: [2, 4, 5],
-        //       hotSpots: [
-        //         { pitch: -5, yaw: -90, type: "scene", text: "Retour Salle Renaissance", sceneId: "salle-1" },
-        //         { pitch: -5, yaw: 90, type: "scene", text: "Aller à Salle Art Moderne", sceneId: "salle-3" },
-        //         { pitch: -15, yaw: 30, type: "artwork", text: "Les Nymphéas", artworkId: 4 },
-        //         { pitch: -12, yaw: -30, type: "artwork", text: "Impression, soleil levant", artworkId: 5 }
-        //       ]
-        //     },
-        //     {
-        //       id: "salle-3",
-        //       title: "Salle Art Moderne",
-        //       room: "Salle 3",
-        //       floor: "RDC",
-        //       description: "Plongez dans l'art moderne et contemporain",
-        //       panorama: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=2000&h=1000&fit=crop",
-        //       thumb: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400&h=200&fit=crop",
-        //       artworkIds: [3, 5, 1],
-        //       hotSpots: [
-        //         { pitch: -5, yaw: -90, type: "scene", text: "Retour Salle Impressionnisme", sceneId: "salle-2" },
-        //         { pitch: -18, yaw: 0, type: "artwork", text: "Guernica", artworkId: 3 },
-        //         { pitch: -10, yaw: 60, type: "artwork", text: "Les Demoiselles d'Avignon", artworkId: 1 }
-        //       ]
-        //     }
-        //   ]
-        // };
+       
         
         setTourData(mockData);
         
