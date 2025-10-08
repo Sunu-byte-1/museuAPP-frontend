@@ -9,8 +9,8 @@
       "room": "Salle 1",
       "floor": "RDC",
       "description": "Entrée principale, œuvres historiques",
-      "panorama": "https://collection.cloudinary.com/daaiip4ou/8298166d1e98ff9a8d33e72dec6a7175",
-      "thumb": "https://collection.cloudinary.com/daaiip4ou/8298166d1e98ff9a8d33e72dec6a7175",
+      "panorama": "https://res.cloudinary.com/daaiip4ou/image/upload/v1759920167/room1_1_qcltfb.jpg",
+      "thumb": "https://res.cloudinary.com/daaiip4ou/image/upload/v1759920167/room1_1_qcltfb.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 1-1", "sceneId": "salle-1-1" }
       ]
