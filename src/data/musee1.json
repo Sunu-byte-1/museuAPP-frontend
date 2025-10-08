@@ -1,3 +1,5 @@
+
+
 {
   "id": "musee1",
   "title": "Visite principale du musée",
@@ -9,8 +11,8 @@
       "room": "Salle 1",
       "floor": "RDC",
       "description": "Entrée principale, œuvres historiques",
-      "panorama": "/panoramas/room1_1.jpg",
-      "thumb": "/panoramas/room1_1.jpg",
+      "panorama": "/public/panoramas/room1_1.jpg",
+      "thumb": "/public/panoramas/room1_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 1-1", "sceneId": "salle-1-1" }
       ]
@@ -21,8 +23,8 @@
       "room": "Salle 1-1",
       "floor": "RDC",
       "description": "Collection moderne",
-      "panorama": "/panoramas/room1_2.jpg",
-      "thumb": "/panoramas/room1_2.jpg",
+        "panorama": "/public/panoramas/room1_2.jpg",
+      "thumb": "/public/panoramas/room1_2.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": -90, "type": "scene", "text": "Retour Salle 1-2", "sceneId": "salle-1-2" }
       ]
@@ -33,8 +35,8 @@
       "room": "Salle 1-2",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room1_3.jpg",
-      "thumb": "/panoramas/room1_3.jpg",
+      "panorama": "/public/panoramas/room1_3.jpg",
+      "thumb": "/public/panoramas/room1_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1-3", "sceneId": "salle-1-3" }
       ]
@@ -45,8 +47,8 @@
       "room": "Salle 1-4",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room1_4.jpg",
-      "thumb": "/panoramas/room1_4.jpg",
+      "panorama": "/public/panoramas/room1_4.jpg",
+      "thumb": "/public/panoramas/room1_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1-4", "sceneId": "salle-1-4" }
       ]
@@ -58,7 +60,7 @@
       "floor": "1",
       "description": "Salle contemporaine",
       "panorama": "/public/panoramas/room1_4.jpg",
-      "thumb": "/panoramas/room1_4.jpg",
+      "thumb": "/public/panoramas/room1_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2" }
       ]
@@ -69,7 +71,7 @@
       "room": "Salle 2",
       "floor": "1",
       "description" : "panorama" ,
-      "panorama": "/panoramas/room2_1.jpg",
+      "panorama": "/public/panoramas/room2_1.jpg",
       "thumb": "/public/panoramas/room2_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2-1" }
