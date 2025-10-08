@@ -297,7 +297,7 @@ function HistorySection() {
               <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 transition-all duration-1000 group-hover:scale-110 ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}
                      style={{ transitionDelay: `${index * 200}ms` }}>
-                  {isVisible ? <CountUp end={stat.number} suffix={stat.suffix} duration={2000} /> : 0}
+                  {}{stat.suffix}
                 </div>
                 <div className="text-lg font-semibold text-gray-800  group-hover:text-orange-600 transition-colors duration-300">
                   {stat.label}

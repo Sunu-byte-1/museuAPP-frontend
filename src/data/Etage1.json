@@ -1,0 +1,130 @@
+{
+  "artworksData": [
+    {
+      "id": 1,
+      "etage": "Premiere etage",
+      "titre": "L'Éveil du Peuple",
+      "type": "Photographie",
+      "descriptionCourte": "Une fresque vibrante symbolisant le réveil de la conscience nationale au Sénégal.",
+      "descriptionLongue": "Cette peinture met en scène des silhouettes multicolores se levant ensemble vers la lumière, symbolisant l’unité et la renaissance d’un peuple décidé à reprendre son destin en main. Les tons chauds et les motifs traditionnels wolof expriment la fierté et la détermination du mouvement populaire.",
+      "image": "N1.jpg",
+      "texte": {
+        "fr": "L'Éveil du Peuple célèbre la prise de conscience collective du peuple sénégalais face à l’injustice et la quête de dignité.",
+        "en": "The People's Awakening celebrates the collective awareness of the Senegalese people in their quest for justice and dignity.",
+        "es": "El Despertar del Pueblo celebra la conciencia colectiva del pueblo senegalés en su búsqueda de justicia y dignidad."
+      }
+    },
+    {
+      "id": 2,
+      "etage": "Premiere etage",
+      "titre": "Voix de la Liberté",
+      "type": "Photographie",
+      "descriptionCourte": "Une photo représentant un poing levé émergeant d’une carte du Sénégal.",
+      "image": "N2.jpg",
+      "descriptionLongue": "Cette œuvre incarne la résistance pacifique et la détermination d’un peuple à se faire entendre. Le poing levé, symbole universel de lutte, jaillit du sol sénégalais, représentant la voix du peuple contre la répression et pour la liberté.",
+      "texte": {
+        "fr": "Voix de la Liberté illustre le courage des citoyens sénégalais dans leur quête de souveraineté et d’expression libre.",
+        "en": "Voice of Freedom illustrates the courage of Senegalese citizens in their pursuit of sovereignty and free expression.",
+        "es": "Voz de la Libertad ilustra el coraje de los ciudadanos senegaleses en su búsqueda de soberanía y libre expresión."
+      }
+    },
+    {
+      "id": 3,
+      "etage": "Premiere etage",
+      "titre": "Les Tambours de la Renaissance",
+      "type": "Photographie",
+      "descriptionCourte": "Une œuvre mêlant percussions traditionnelles et discours populaires.",
+      "image": "N3.jpg",
+      "descriptionLongue": "Cette representation fait vibrer des rythmes sabar et djembé accompagnés d’extraits de voix de jeunes manifestants. Elle rappelle comment la musique et la parole ont porté le message de changement à travers tout le pays.",
+      "texte": {
+        "fr": "Les Tambours de la Renaissance rappellent le rôle du son et de la culture dans les mouvements de libération sénégalais.",
+        "en": "The Drums of Renaissance remind us of the power of sound and culture in Senegal's liberation movements.",
+        "es": "Los Tambores del Renacimiento nos recuerdan el poder del sonido y la cultura en los movimientos de liberación de Senegal."
+      }
+    },
+    {
+      "id": 4,
+      "etage": "Premiere etage",
+      "titre": "Le Vent du Changement",
+      "type": "Photographie",
+      "descriptionCourte": "Une photo capturant une foule en mouvement sous les drapeaux du Sénégal.",
+      "image": "N4.jpg",
+      "descriptionLongue": "Cette image saisit l’énergie et la ferveur d’une jeunesse debout, brandissant le vert, le jaune et le rouge. Le flou du mouvement traduit la rapidité du changement politique et la force de l’espoir collectif.",
+      "texte": {
+        "fr": "Le Vent du Changement symbolise l’élan d’un peuple qui avance, malgré les tempêtes, vers un avenir nouveau.",
+        "en": "The Wind of Change symbolizes a people moving forward, despite the storms, toward a new future.",
+        "es": "El Viento del Cambio simboliza a un pueblo que avanza, a pesar de las tormentas, hacia un nuevo futuro."
+      }
+    },
+    {
+      "id": 5,
+      "etage": "Premiere etage",
+      "titre": "Les Gardiens de la Justice",
+      "type": "Photographie",
+      "descriptionCourte": "Une peinture murale représentant Diomaye et Sonko côte à côte, entourés du peuple.",
+      "image": "N5.jpg",
+      "descriptionLongue": "Dans un style néo-réaliste, cette fresque met en avant les deux figures emblématiques de la révolution sénégalaise. Leur regard fixe l’horizon tandis que le peuple derrière eux incarne la force collective et l’espoir d’une gouvernance éthique.",
+      "texte": {
+        "fr": "Les Gardiens de la Justice rendent hommage aux leaders qui ont porté la voix du peuple vers une nouvelle ère politique.",
+        "en": "Guardians of Justice pays tribute to the leaders who carried the people's voice into a new political era.",
+        "es": "Los Guardianes de la Justicia rinden homenaje a los líderes que llevaron la voz del pueblo hacia una nueva era política."
+      }
+    },
+    {
+      "id": 6,
+      "etage": "Premiere etage",
+      "titre": "Flamme Citoyenne",
+      "type": "Photographie",
+      "descriptionCourte": "Une flamme artificielle entourée de citations inspirantes du mouvement citoyen.",
+      "image": "N6.jpg",
+      "descriptionLongue": "Les murs sont tapissés de phrases extraites des discours et messages de mobilisation. La lumière vacillante au centre évoque la persévérance et la foi inébranlable dans le changement pacifique.",
+      "texte": {
+        "fr": "Flamme Citoyenne symbolise la lumière intérieure qui anime chaque Sénégalais engagé pour la justice.",
+        "en": "Citizen Flame symbolizes the inner light that drives every Senegalese committed to justice.",
+        "es": "Llama Ciudadana simboliza la luz interior que impulsa a cada senegalés comprometido con la justicia."
+      }
+    },
+    {
+      "id": 7,
+      "etage": "Premiere etage",
+      "titre": "Routes de l’Espoir",
+      "type": "Photographie",
+      "descriptionCourte": "Une route déserte menant vers un lever de soleil doré.",
+      "image": "N7.jpg",
+      "descriptionLongue": "Cette photographie symbolise le chemin difficile mais prometteur vers un Sénégal nouveau. Le soleil levant au bout de la route évoque l’aube d’un futur bâti sur la justice, la transparence et la dignité.",
+      "texte": {
+        "fr": "Routes de l’Espoir évoque le long parcours du peuple sénégalais vers un avenir juste et prospère.",
+        "en": "Roads of Hope evokes the long journey of the Senegalese people toward a just and prosperous future.",
+        "es": "Caminos de la Esperanza evoca el largo recorrido del pueblo senegalés hacia un futuro justo y próspero."
+      }
+    },
+    {
+      "id": 8,
+      "etage": "Premiere etage",
+      "titre": "La Parole du Peuple",
+      "type": "Photographie",
+      "descriptionCourte": "Une performance visuelle mêlant chants, cris et récits citoyens.",
+      "image": "N8.jpg",
+      "descriptionLongue": "Dans cette œuvre immersive, des visages anonymes racontent leurs rêves, leurs luttes et leurs espoirs. Les sons de la rue et les chants patriotiques fusionnent dans un cri d’unité et de dignité nationale.",
+      "texte": {
+        "fr": "La Parole du Peuple immortalise les voix qui ont façonné la révolution sénégalaise.",
+        "en": "The People's Voice immortalizes the voices that shaped the Senegalese revolution.",
+        "es": "La Voz del Pueblo inmortaliza las voces que dieron forma a la revolución senegalesa."
+      }
+    },
+    {
+      "id": 9,
+      "etage": "Premiere etage",
+      "titre": "Nouvel Horizon",
+      "type": "Photographie",
+      "descriptionCourte": "Une œuvre illustrant un Sénégal renaissant sous un ciel lumineux.",
+      "image": "N9.jpg",
+      "descriptionLongue": "Les couleurs vives et les formes fluides représentent un pays en transformation, tourné vers le futur. Le ciel bleu symbolise la paix retrouvée, tandis que la lumière dorée incarne la promesse d’un nouveau départ sous la direction du peuple.",
+      "texte": {
+        "fr": "Nouvel Horizon célèbre la renaissance d’un Sénégal guidé par la justice et la solidarité.",
+        "en": "New Horizon celebrates the rebirth of a Senegal guided by justice and solidarity.",
+        "es": "Nuevo Horizonte celebra el renacimiento de un Senegal guiado por la justicia y la solidaridad."
+      }
+    }
+  ]
+}

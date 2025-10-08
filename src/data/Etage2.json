@@ -1,0 +1,130 @@
+{
+  "artworksData": [
+    {
+      "id": 1,
+      "etage": "Deuxieme etage",
+      "titre": "Masque nouvelle Guinée",
+      "type": "Sculpture",
+      "descriptionCourte": "Masque nouvelle Guinée",
+      "descriptionLongue": "Nouvelle Guinée Bois et Pigments 103*30cm",
+      "image": "NN1.jpg",
+      "texte": {
+        "fr": "Nouvelle Guinée Bois et Pigments 103*30cm",
+        "en": "New Guinea Wood and Pigments 103*30cm",
+        "es": "Madera y pigmentos de Nueva Guinea 103*30 cm"
+      }
+    },
+    {
+      "id": 2,
+      "etage": "Deuxieme etage",
+      "titre": "Masque Sepik",
+      "type": "Sculpture",
+      "descriptionCourte": "Masque Sepik",
+      "descriptionLongue": "Papouasie-Nouvelle-Guinee Bois, pigment, cauris Defense de phacochere,fibre de Vegetales",
+      "image": "NN2.jpg",
+      "texte": {
+        "fr": "Papouasie-Nouvelle-Guinee Bois, pigment, cauris Defense de phacochere,fibre de Vegetales",
+        "en": "Papua New Guinea Wood, pigment, cowrie shell Warthog tusk, plant fiber",
+        "es": "Papúa Nueva Guinea Madera, pigmento, concha de cauri Colmillo de facóquero, fibra vegetal"
+      }
+    },
+    {
+      "id": 3,
+      "etage": "Deuxieme etage",
+      "titre": ">Masque Demba ou Nimba",
+      "type": "Sculpture",
+      "descriptionCourte": ">Masque Demba ou Nimba",
+      "descriptionLongue": "Guinée Conakry Bois,fibre vegetales,clous tapissiers,pigment 136*50cm",
+      "image": "NN3.jpg",
+      "texte": {
+        "fr": "Guinée Conakry Bois,fibre vegetales,clous tapissiers,pigment 136*50cm",
+        "en": "Guinea Conakry Wood, plant fiber, upholstery nails, pigment 136*50cm",
+        "es": "Guinea Conakry Madera, fibra vegetal, clavos de tapicería, pigmento 136*50cm"
+      }
+    },
+    {
+      "id": 4,
+      "etage": "Deuxieme etage",
+      "titre": "Masque de Bamileke aux grande oreilles",
+      "type": "Sculpture",
+      "descriptionCourte": "Masque de Bamileke aux grande oreilles",
+      "descriptionLongue": "Cameroun Bois 130*65cm",
+      "image": "NN4.jpg",
+      "texte": {
+        "fr": "Cameroun Bois 130*65cm",
+        "en": "Cameroon Wood 130*65cm",
+        "es": "Madera de Camerún 130*65cm"
+      }
+    },
+    {
+      "id": 5,
+      "etage": "Deuxieme etage",
+      "titre": "Masque-heaume",
+      "type": "Sculpture",
+      "descriptionCourte": "Masque-heaume",
+      "descriptionLongue": "Cameroun Bois et cuir H: 45cm",
+      "image": "NN5.jpg",
+      "texte": {
+        "fr": "Cameroun Bois et cuir H: 45cm",
+        "en": "Cameroon Wood and leather H: 45cm",
+        "es": "Camerún Madera y cuero Alto: 45cm"
+      }
+    },
+    {
+      "id": 6,
+      "etage": "Deuxieme etage",
+      "titre": "Maintenant l'Afrique",
+      "type": "Texte",
+      "descriptionCourte": "Maintenant l'Afrique",
+      "descriptionLongue": "L’Afrique se lève, fière et consciente de sa force. Terre d’héritage et d’avenir, elle façonne son destin. Ses voix résonnent dans l’art, la science et la liberté. De ses racines naît une modernité pleine d’âme. Maintenant, l’Afrique n’attend plus : elle avance.",
+      "image": "NN6.jpg",
+      "texte": {
+        "fr": "L’Afrique se lève, fière et consciente de sa force. Terre d’héritage et d’avenir, elle façonne son destin. Ses voix résonnent dans l’art, la science et la liberté. De ses racines naît une modernité pleine d’âme. Maintenant, l’Afrique n’attend plus : elle avance.",
+        "en": "Africa rises, proud and aware of her strength. Land of heritage and future, she shapes her own path. Her voices echo through art, science, and freedom. From her roots grows a soulful modernity. Now, Africa waits no more — she moves forward.",
+        "es": "África se eleva, orgullosa y consciente de su fuerza. Tierra de herencia y de futuro, forja su propio destino. Sus voces resuenan en el arte, la ciencia y la libertad. De sus raíces nace una modernidad con alma. Ahora, África ya no espera: avanza."
+      }
+    },
+     {
+      "id": 7,
+      "etage": "Deuxieme etage",
+      "titre": "Le Laboratoire de Deberlinisation",
+      "type": "Assemblage",
+      "descriptionCourte": "Le Laboratoire de Deberlinisation",
+      "descriptionLongue": "Mansour Ciss Kanakassy 2008 Technique Mixte Grand prix LLS Dak'Art 2008",
+      "image": "NN7.jpg",
+      "texte": {
+        "fr": "Mansour Ciss Kanakassy 2008 Technique Mixte Grand prix LLS Dak'Art 2008",
+        "en": "Mansour Ciss Kanakassy 2008 Mixed Technique Grand Prix LLS Dak'Art 2008",
+        "es": "Mansour Ciss Kanakassy 2008 Gran Premio de Técnica Mixta LLS Dak'Art 2008"
+      }
+    },
+     {
+      "id": 8,
+      "etage": "Deuxieme etage",
+      "titre": "Eaux Troubes",
+      "type": "Tableau",
+      "descriptionCourte": "Eaux Troubes",
+      "descriptionLongue": "Yrneh Gabon 2018 Toile, Peinture, Huile, Fer et Peau d'Animal",
+      "image": "NN8.jpg",
+      "texte": {
+        "fr": "Yrneh Gabon 2018 Toile, Peinture, Huile, Fer et Peau d'Animal",
+        "en": "Yrneh Gabon 2018 Canvas, Paint, Oil, Iron and Animal Skin",
+        "es": "Yrneh Gabón 2018 Lienzo, pintura, óleo, hierro y piel de animal"
+      }
+    },
+     {
+      "id": 9,
+      "etage": "Deuxieme etage",
+      "titre": " Échos de Liberté",
+      "type": "Sculpture",
+      "descriptionCourte": " Échos de Liberté",
+      "descriptionLongue": "Échos de Liberté » est une sculpture contemporaine qui symbolise le voyage de l’Afrique, de l’oppression à la libération. Façonnée à partir de métal et de bois recyclés, elle incarne la résilience et la créativité du peuple africain. Les formes entrelacées évoquent l’unité et la force, tandis que les espaces ouverts laissent respirer l’espoir et la liberté.",
+      "image": "NN9.jpg",
+      "texte": {
+        "fr": "Échos de Liberté » est une sculpture contemporaine qui symbolise le voyage de l’Afrique, de l’oppression à la libération. Façonnée à partir de métal et de bois recyclés, elle incarne la résilience et la créativité du peuple africain. Les formes entrelacées évoquent l’unité et la force, tandis que les espaces ouverts laissent respirer l’espoir et la liberté.",
+        "en": "Echoes of Freedom” is a contemporary sculpture symbolizing Africa’s journey from oppression to liberation. Crafted from recycled metal and wood, it embodies the resilience and creativity of the African people. The intertwining shapes represent unity and strength, while the open spaces evoke hope and the breath of freedom.",
+        "es": "Ecos de Libertad” es una escultura contemporánea que simboliza el viaje de África desde la opresión hasta la liberación. Hecha de metal y madera reciclados, refleja la resistencia y la creatividad del pueblo africano. Las formas entrelazadas representan la unidad y la fuerza, mientras que los espacios abiertos evocan el aliento de la libertad y la esperanza."
+      }
+    }
+  ]
+}

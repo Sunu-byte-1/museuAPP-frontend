@@ -1,93 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { X, Play, Pause } from 'lucide-react';
-
+import artworksData from '../../data/RezDC.json'
 // Données JSON des œuvres d'art
-const artworksData = [
-  {
-    id: 1,
-    etage: "Rez-de-chaussée",
-    titre: "La Nuit Étoilée",
-    type: "Peinture",
-    descriptionCourte: "Une œuvre impressionniste représentant un ciel nocturne tourbillonnant.",
-    descriptionLongue: "Cette peinture emblématique capture la beauté du ciel nocturne avec des touches de bleu profond et de jaune vibrant. Les étoiles semblent danser dans un mouvement circulaire, créant une atmosphère onirique et mystique.",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80",
-    texte: {
-      fr: "La Nuit Étoilée est une peinture impressionniste célèbre représentant un ciel nocturne tourbillonnant au-dessus d'un village paisible.",
-      en: "Starry Night is a famous impressionist painting depicting a swirling night sky above a peaceful village.",
-      es: "La Noche Estrellada es una famosa pintura impresionista que representa un cielo nocturno arremolinado sobre un pueblo pacífico."
-    }
-  },
-  {
-    id: 2,
-    etage: "Rez-de-chaussée",
-    titre: "Le Penseur",
-    type: "Sculpture",
-    descriptionCourte: "Une sculpture en bronze représentant un homme en profonde méditation.",
-    descriptionLongue: "Cette sculpture monumentale incarne la réflexion philosophique et la contemplation humaine. Le personnage assis, la tête appuyée sur sa main, représente l'intellect et la pensée profonde de l'humanité.",
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=800&q=80",
-    texte: {
-      fr: "Le Penseur est une sculpture emblématique représentant un homme nu assis en position de réflexion intense.",
-      en: "The Thinker is an iconic sculpture depicting a nude man sitting in a position of intense reflection.",
-      es: "El Pensador es una escultura icónica que representa a un hombre desnudo sentado en posición de reflexión intensa."
-    }
-  },
-  {
-    id: 3,
-    etage: "1er étage",
-    titre: "Portrait de la Renaissance",
-    type: "Peinture",
-    descriptionCourte: "Un portrait classique de la période Renaissance italienne.",
-    descriptionLongue: "Ce portrait majestueux illustre la maîtrise technique de la Renaissance avec ses jeux de lumière subtils et ses détails minutieux. Le regard pénétrant du sujet crée une connexion intemporelle avec le spectateur.",
-    image: "https://images.unsplash.com/photo-1578926078623-8e9a2d5e8f3e?w=800&q=80",
-    texte: {
-      fr: "Ce portrait Renaissance capture l'essence de l'humanisme avec une technique picturale raffinée et des détails exquis.",
-      en: "This Renaissance portrait captures the essence of humanism with refined pictorial technique and exquisite details.",
-      es: "Este retrato renacentista captura la esencia del humanismo con una técnica pictórica refinada y detalles exquisitos."
-    }
-  },
-  {
-    id: 4,
-    etage: "1er étage",
-    titre: "Symphonie Abstraite",
-    type: "Art Moderne",
-    descriptionCourte: "Une composition abstraite de formes et de couleurs vibrantes.",
-    descriptionLongue: "Cette œuvre moderne explore les relations entre les couleurs et les formes géométriques. L'artiste crée un dialogue visuel dynamique qui évoque le mouvement et l'énergie pure, invitant chaque spectateur à sa propre interprétation.",
-    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&q=80",
-    texte: {
-      fr: "Symphonie Abstraite est une exploration audacieuse des formes géométriques et des couleurs vives dans l'art moderne.",
-      en: "Abstract Symphony is a bold exploration of geometric shapes and vivid colors in modern art.",
-      es: "Sinfonía Abstracta es una exploración audaz de formas geométricas y colores vivos en el arte moderno."
-    }
-  },
-  {
-    id: 5,
-    etage: "2ème étage",
-    titre: "Jardin Japonais",
-    type: "Photographie",
-    descriptionCourte: "Une photographie sereine d'un jardin zen traditionnel.",
-    descriptionLongue: "Cette photographie contemporaine capture la tranquillité d'un jardin japonais avec ses pierres soigneusement disposées, ses arbres taillés avec précision et son étang paisible. L'image invite à la méditation et à la contemplation de la beauté naturelle.",
-    image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=800&q=80",
-    texte: {
-      fr: "Jardin Japonais capture l'harmonie et la sérénité d'un espace zen traditionnel à travers une photographie contemplative.",
-      en: "Japanese Garden captures the harmony and serenity of a traditional zen space through contemplative photography.",
-      es: "Jardín Japonés captura la armonía y serenidad de un espacio zen tradicional a través de la fotografía contemplativa."
-    }
-  },
-  {
-    id: 6,
-    etage: "2ème étage",
-    titre: "Métropole Nocturne",
-    type: "Photographie",
-    descriptionCourte: "Vue urbaine illuminée d'une grande ville la nuit.",
-    descriptionLongue: "Cette photographie urbaine saisit l'énergie vibrante d'une métropole moderne après le coucher du soleil. Les lumières scintillantes des gratte-ciels et le flot des véhicules créent une composition dynamique qui célèbre la vie urbaine contemporaine.",
-    image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=800&q=80",
-    texte: {
-      fr: "Métropole Nocturne révèle la beauté électrique et l'énergie palpitante d'une ville moderne sous les lumières nocturnes.",
-      en: "Night Metropolis reveals the electric beauty and pulsating energy of a modern city under the night lights.",
-      es: "Metrópolis Nocturna revela la belleza eléctrica y la energía pulsante de una ciudad moderna bajo las luces nocturnas."
-    }
-  }
-];
+
 
 const DiscoverArtworks = () => {
   // États pour gérer l'étage actif, la modal et la langue
@@ -99,7 +14,7 @@ const DiscoverArtworks = () => {
 
 
   // Liste des étages disponibles
-  const floors = ["Rez-de-chaussée", "1er étage", "2ème étage"];
+  const floors = ["Rez-de-chaussée", "Premiere etage", "Deuxieme etage"];
 
   // Filtrer les œuvres selon l'étage actif
   const filteredArtworks = artworksData.filter(
