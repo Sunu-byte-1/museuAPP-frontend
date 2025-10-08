@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ShoppingCart, Search, X, Minus, Plus, Trash2, Check, CreditCard, Loader2 } from 'lucide-react';
-import PRODUCTS from '../../../data/products.json';
+import PRODUCTS from '../../data/products.json';
 // Données produits (simulant l'import depuis ../../data/products.json)
 /*const PRODUCTS = [
   {
