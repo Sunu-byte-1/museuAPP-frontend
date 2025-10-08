@@ -1,321 +1,685 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAdmin } from '../../context/AdminContext';
-import { ArrowLeft, Volume2, VolumeX } from 'lucide-react';
-import defaultTour from '../../data/musee1.json';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Home, 
+  Map, 
+  Info,
+  Eye,
+  Navigation,
+  Loader,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  Minimize2,
+  X,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  MapPin
+} from 'lucide-react';
 
-export default function VirtualVisit() {
+// Simuler les imports (à remplacer par vos vrais imports)
+const useUser = () => ({ user: { name: 'User' }, isAuthenticated: true });
+const artworkService = {
+  getArtworkById: async (id) => ({
+    success: true,
+    data: {
+      id,
+      title: `Œuvre ${id}`,
+      artist: 'Artiste',
+      description: 'Description de l\'œuvre',
+      category: 'Peinture',
+      year: '2024',
+      image: `https://images.unsplash.com/photo-1578926288207-a90a5366759d?w=400&h=400&fit=crop&q=80&sig=${id}`
+    }
+  })
+};
+
+export default function VirtualVisitEnhanced() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { getArtworkById } = useAdmin();
-
-  const [artwork, setArtwork] = useState(null);
+  const { user, isAuthenticated } = useUser();
+  
+  // États de la visite virtuelle
+  const [tourData, setTourData] = useState(null);
+  const [currentScene, setCurrentScene] = useState(null);
+  const [artworks, setArtworks] = useState([]);
+  const [selectedArtwork, setSelectedArtwork] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+  // États de l'interface
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showMap, setShowMap] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [isInfoVisible, setIsInfoVisible] = useState(true);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  const viewerRef = useRef(null);
+  const [showCoordinates, setShowCoordinates] = useState(false);
+  
+  // États du panorama
+  const [viewAngle, setViewAngle] = useState({ yaw: 0, pitch: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [autoRotate, setAutoRotate] = useState(false);
+  
   const containerRef = useRef(null);
-  const touchStartX = useRef(0);
+  const animationFrameRef = useRef(null);
 
-  const [sceneList, setSceneList] = useState([]);
-  const [currentSceneId, setCurrentSceneId] = useState(null);
-
+  // Charger les données du musée et les œuvres
   useEffect(() => {
-    const data = getArtworkById ? getArtworkById(id) : null;
-    if (!data) { setArtwork(defaultTour); return; }
-    const refersToDefault =
-      data.tour === defaultTour.id ||
-      (typeof data.tourPath === 'string' && data.tourPath.includes(defaultTour.id)) ||
-      data.tourId === defaultTour.id ||
-      id === defaultTour.id;
-    const merged = refersToDefault ? { ...defaultTour, ...data } : { ...defaultTour, ...data };
-    if (!merged.scenes || merged.scenes.length === 0) merged.scenes = defaultTour.scenes || [];
-    setArtwork(merged);
-  }, [id, getArtworkById]);
-
-  useEffect(() => {
-    if (!artwork) return;
-
-    const buildSceneList = () => {
-      const list = [];
-      if (Array.isArray(artwork.scenes) && artwork.scenes.length > 0) {
-        artwork.scenes.forEach((s, idx) => {
-          const pano = s.panorama || s.image || null;
-          if (!pano) return;
-          list.push({
-            id: s.id ?? `scene-${idx + 1}`,
-            title: s.title ?? `Salle ${idx + 1}`,
-            panorama: pano,
-            thumb: s.thumb || pano,
-            room: s.room ?? s.title ?? `Salle ${idx + 1}`,
-            floor: s.floor ?? artwork.floor ?? '',
-            description: s.description ?? '',
-            raw: s
-          });
-        });
-      } else {
-        const pano = artwork.panorama || artwork.image || null;
-        if (pano) {
-          list.push({
-            id: 'scene-1',
-            title: artwork.title || 'Salle 1',
-            panorama: pano,
-            thumb: pano,
-            room: artwork.room ?? artwork.title ?? 'Salle 1',
-            floor: artwork.floor ?? '',
-            description: artwork.description ?? '',
-            raw: {}
-          });
-        }
-      }
-      return list;
-    };
-
-    const usableScenes = buildSceneList();
-    setSceneList(usableScenes);
-    if (usableScenes.length === 0) { console.error('Aucune image panoramique trouvée.'); return; }
-
-    const cssHref = 'https://unpkg.com/pannellum/build/pannellum.css';
-    if (!document.querySelector(`link[href="${cssHref}"]`)) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = cssHref;
-      document.head.appendChild(link);
-    }
-
-    const initViewer = () => {
-      if (!window.pannellum || !containerRef.current) return;
-      try { viewerRef.current && viewerRef.current.destroy(); } catch (e) {}
-      const scenesObj = {};
-      usableScenes.forEach((s) => {
-        const original = s.raw || {};
-        scenesObj[s.id] = {
-          title: s.title,
-          type: 'equirectangular',
-          panorama: s.panorama,
-          pitch: original.pitch ?? 0,
-          yaw: original.yaw ?? 180,
-          hfov: original.hfov ?? 110,
-          hotSpots: original.hotSpots || []
-        };
-      });
-      const config = { default: usableScenes[0].id, scenes: scenesObj };
-      viewerRef.current = window.pannellum.viewer(containerRef.current, config);
-      setCurrentSceneId(usableScenes[0].id);
+    const loadTourData = async () => {
       try {
-        viewerRef.current.on('scenechange', () => {
-          try { setCurrentSceneId(viewerRef.current.getScene()); } catch (e) {}
-        });
-      } catch (e) {}
-    };
-
-    const scriptSrc = 'https://unpkg.com/pannellum/build/pannellum.js';
-    if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
-      const script = document.createElement('script');
-      script.src = scriptSrc;
-      script.async = true;
-      script.onload = initViewer;
-      document.body.appendChild(script);
-    } else {
-      initViewer();
-    }
-
-    return () => {
-      try { viewerRef.current && viewerRef.current.destroy(); } catch (e) {}
-      viewerRef.current = null;
-      setCurrentSceneId(null);
-    };
-  }, [artwork]);
-
-  useEffect(() => {
-    if (!sceneList || sceneList.length === 0) return;
-    sceneList.forEach(s => { const img = new Image(); img.src = s.panorama; });
-  }, [sceneList]);
-
-  useEffect(() => {
-    const onKey = (e) => {
-      if (e.key === 'ArrowLeft') animateYaw(-30);
-      if (e.key === 'ArrowRight') animateYaw(30);
-      if (e.key === 'ArrowUp') zoomIn();
-      if (e.key === 'ArrowDown') zoomOut();
-      if (e.key === ' ') { e.preventDefault(); setIsInfoVisible(v => !v); }
-      if (/^[1-9]$/.test(e.key)) {
-        const idx = parseInt(e.key, 10) - 1;
-        if (sceneList[idx]) loadScene(sceneList[idx].id);
+        setLoading(true);
+        
+        // Charger les données de la visite (remplacer par fetch du JSON)
+        const mockData = {
+          id: "musee1",
+          title: "Visite principale du musée",
+          floor: "RDC",
+          scenes: [
+            {
+              id: "salle-1",
+              title: "Salle Renaissance",
+              room: "Salle 1",
+              floor: "RDC",
+              description: "Découvrez les chefs-d'œuvre de la Renaissance européenne",
+              panorama: "https://images.unsplash.com/photo-1566127444026-86e998bb2ecc?w=2000&h=1000&fit=crop",
+              thumb: "https://images.unsplash.com/photo-1566127444026-86e998bb2ecc?w=400&h=200&fit=crop",
+              artworkIds: [1, 2, 3],
+              hotSpots: [
+                { pitch: -5, yaw: 90, type: "scene", text: "Aller à Salle Impressionnisme", sceneId: "salle-2" },
+                { pitch: -10, yaw: 0, type: "artwork", text: "La Naissance de Vénus", artworkId: 1 },
+                { pitch: -15, yaw: 45, type: "artwork", text: "Portrait de Mona Lisa", artworkId: 2 },
+                { pitch: -12, yaw: -45, type: "artwork", text: "La Cène", artworkId: 3 }
+              ]
+            },
+            {
+              id: "salle-2",
+              title: "Salle Impressionnisme",
+              room: "Salle 2",
+              floor: "RDC",
+              description: "Explorez les œuvres des maîtres impressionnistes",
+              panorama: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=2000&h=1000&fit=crop",
+              thumb: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=400&h=200&fit=crop",
+              artworkIds: [2, 4, 5],
+              hotSpots: [
+                { pitch: -5, yaw: -90, type: "scene", text: "Retour Salle Renaissance", sceneId: "salle-1" },
+                { pitch: -5, yaw: 90, type: "scene", text: "Aller à Salle Art Moderne", sceneId: "salle-3" },
+                { pitch: -15, yaw: 30, type: "artwork", text: "Les Nymphéas", artworkId: 4 },
+                { pitch: -12, yaw: -30, type: "artwork", text: "Impression, soleil levant", artworkId: 5 }
+              ]
+            },
+            {
+              id: "salle-3",
+              title: "Salle Art Moderne",
+              room: "Salle 3",
+              floor: "RDC",
+              description: "Plongez dans l'art moderne et contemporain",
+              panorama: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=2000&h=1000&fit=crop",
+              thumb: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=400&h=200&fit=crop",
+              artworkIds: [3, 5, 1],
+              hotSpots: [
+                { pitch: -5, yaw: -90, type: "scene", text: "Retour Salle Impressionnisme", sceneId: "salle-2" },
+                { pitch: -18, yaw: 0, type: "artwork", text: "Guernica", artworkId: 3 },
+                { pitch: -10, yaw: 60, type: "artwork", text: "Les Demoiselles d'Avignon", artworkId: 1 }
+              ]
+            }
+          ]
+        };
+        
+        setTourData(mockData);
+        
+        // Définir la scène initiale
+        const initialSceneId = id || mockData.scenes[0].id;
+        const initialScene = mockData.scenes.find(s => s.id === initialSceneId) || mockData.scenes[0];
+        setCurrentScene(initialScene);
+        
+        // Charger les œuvres de la scène
+        await loadSceneArtworks(initialScene);
+        
+        setLoading(false);
+      } catch (err) {
+        console.error('Erreur chargement:', err);
+        setError('Impossible de charger la visite virtuelle');
+        setLoading(false);
       }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [sceneList, currentSceneId]);
 
+    loadTourData();
+  }, [id]);
+
+  // Charger les œuvres d'une scène
+  const loadSceneArtworks = async (scene) => {
+    if (!scene?.artworkIds) return;
+    
+    try {
+      const artworkPromises = scene.artworkIds.map(artworkId => 
+        artworkService.getArtworkById(artworkId)
+      );
+      const responses = await Promise.all(artworkPromises);
+      const validArtworks = responses
+        .filter(response => response.success)
+        .map(response => response.data);
+      setArtworks(validArtworks);
+    } catch (error) {
+      console.error('Erreur chargement œuvres:', error);
+    }
+  };
+
+  // Rotation automatique
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const onTouchStart = (ev) => { touchStartX.current = ev.touches?.[0]?.clientX ?? 0; };
-    const onTouchEnd = (ev) => {
-      const endX = ev.changedTouches?.[0]?.clientX ?? 0;
-      const dx = endX - touchStartX.current;
-      if (Math.abs(dx) < 50) return;
-      const idx = sceneList.findIndex(s => s.id === currentSceneId);
-      if (dx < 0 && idx < sceneList.length - 1) loadScene(sceneList[idx + 1].id);
-      if (dx > 0 && idx > 0) loadScene(sceneList[idx - 1].id);
-    };
-    el.addEventListener('touchstart', onTouchStart, { passive: true });
-    el.addEventListener('touchend', onTouchEnd, { passive: true });
+    if (autoRotate && !isDragging) {
+      const rotate = () => {
+        setViewAngle(prev => ({
+          ...prev,
+          yaw: (prev.yaw + 0.2) % 360
+        }));
+        animationFrameRef.current = requestAnimationFrame(rotate);
+      };
+      animationFrameRef.current = requestAnimationFrame(rotate);
+    }
+    
     return () => {
-      el.removeEventListener('touchstart', onTouchStart);
-      el.removeEventListener('touchend', onTouchEnd);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-  }, [sceneList, currentSceneId]);
+  }, [autoRotate, isDragging]);
 
-  const animateYaw = (delta) => {
-    const v = viewerRef.current;
-    if (!v) return;
-    const start = v.getYaw();
-    const target = start + delta;
-    const duration = 300;
-    let t0 = null;
-    const step = (t) => {
-      if (!t0) t0 = t;
-      const p = Math.min(1, (t - t0) / duration);
-      v.setYaw(start + (target - start) * p);
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+  // Gestion du drag
+  const handleMouseDown = (e) => {
+    setIsDragging(true);
+    setAutoRotate(false);
+    setDragStart({ x: e.clientX, y: e.clientY });
   };
 
-  const toggleMute = () => setIsMuted(v => !v);
-  const toggleInfo = () => setIsInfoVisible(v => !v);
-
-  const loadScene = (sceneId) => {
-    if (!viewerRef.current || isTransitioning || sceneId === currentSceneId) return;
-    const target = sceneList.find(s => s.id === sceneId);
-    if (!target) return;
-    setIsTransitioning(true);
-    const img = new Image();
-    img.src = target.panorama;
-    img.onload = () => {
-      try { viewerRef.current.loadScene(sceneId); setCurrentSceneId(sceneId); } catch (e) { console.error(e); }
-      setTimeout(() => setIsTransitioning(false), 450);
-    };
-    img.onerror = () => { console.error('Préchargement panorama échoué', target.panorama); setIsTransitioning(false); };
+  const handleMouseMove = (e) => {
+    if (!isDragging) return;
+    
+    const deltaX = e.clientX - dragStart.x;
+    const deltaY = e.clientY - dragStart.y;
+    
+    setViewAngle(prev => ({
+      yaw: (prev.yaw + deltaX * 0.3) % 360,
+      pitch: Math.max(-90, Math.min(90, prev.pitch - deltaY * 0.3))
+    }));
+    
+    setDragStart({ x: e.clientX, y: e.clientY });
   };
 
-  const zoomIn = () => { const v = viewerRef.current; if (!v) return; v.setHfov(Math.max(30, v.getHfov() - 10)); };
-  const zoomOut = () => { const v = viewerRef.current; if (!v) return; v.setHfov(Math.min(140, v.getHfov() + 10)); };
-  const rotateLeft = () => animateYaw(-30);
-  const rotateRight = () => animateYaw(30);
-  const resetView = () => { const v = viewerRef.current; if (!v) return; v.setPitch(0); v.setYaw(180); v.setHfov(110); };
-
-  const toggleFullscreen = async () => {
-    const el = containerRef.current;
-    if (!el) return;
-    if (!document.fullscreenElement) { await el.requestFullscreen().catch(() => {}); }
-    else { await document.exitFullscreen().catch(() => {}); }
+  const handleMouseUp = () => {
+    setIsDragging(false);
   };
 
-  if (!artwork) {
+  // Touch events
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 1) {
+      setIsDragging(true);
+      setAutoRotate(false);
+      setDragStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging || e.touches.length !== 1) return;
+    
+    const deltaX = e.touches[0].clientX - dragStart.x;
+    const deltaY = e.touches[0].clientY - dragStart.y;
+    
+    setViewAngle(prev => ({
+      yaw: (prev.yaw + deltaX * 0.3) % 360,
+      pitch: Math.max(-90, Math.min(90, prev.pitch - deltaY * 0.3))
+    }));
+    
+    setDragStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+  };
+
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  // Navigation entre scènes
+  const navigateToScene = async (sceneId) => {
+    const scene = tourData.scenes.find(s => s.id === sceneId);
+    if (scene) {
+      setLoading(true);
+      setCurrentScene(scene);
+      setViewAngle({ yaw: 0, pitch: 0 });
+      setShowInfo(false);
+      setSelectedArtwork(null);
+      await loadSceneArtworks(scene);
+      setLoading(false);
+    }
+  };
+
+  // Sélectionner une œuvre
+  const selectArtworkById = (artworkId) => {
+    const artwork = artworks.find(a => a.id === artworkId);
+    if (artwork) {
+      setSelectedArtwork(artwork);
+    }
+  };
+
+  // Fullscreen
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      containerRef.current?.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  // Calculer position hotspot
+  const calculateHotspotPosition = (hotspot) => {
+    const fov = 100;
+    const centerYaw = viewAngle.yaw;
+    const centerPitch = viewAngle.pitch;
+    
+    let deltaYaw = hotspot.yaw - centerYaw;
+    if (deltaYaw > 180) deltaYaw -= 360;
+    if (deltaYaw < -180) deltaYaw += 360;
+    
+    const deltaPitch = hotspot.pitch - centerPitch;
+    
+    const x = 50 + (deltaYaw / fov) * 50;
+    const y = 50 + (deltaPitch / fov) * 50;
+    
+    const isVisible = Math.abs(deltaYaw) < fov && Math.abs(deltaPitch) < fov;
+    
+    return { x, y, isVisible };
+  };
+
+  // Navigation rapide
+  const goToNextScene = () => {
+    const currentIndex = tourData.scenes.findIndex(s => s.id === currentScene.id);
+    const nextIndex = (currentIndex + 1) % tourData.scenes.length;
+    navigateToScene(tourData.scenes[nextIndex].id);
+  };
+
+  const goToPreviousScene = () => {
+    const currentIndex = tourData.scenes.findIndex(s => s.id === currentScene.id);
+    const prevIndex = currentIndex === 0 ? tourData.scenes.length - 1 : currentIndex - 1;
+    navigateToScene(tourData.scenes[prevIndex].id);
+  };
+
+  if (loading && !currentScene) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-blue-600 mx-auto" />
-          <p className="mt-4 text-gray-600">Chargement de la visite virtuelle...</p>
+          <Loader className="w-12 h-12 text-blue-500 animate-spin mx-auto mb-4" />
+          <p className="text-white text-lg">Chargement de la visite virtuelle...</p>
         </div>
       </div>
     );
   }
 
-  const currentMeta = sceneList.find(s => s.id === currentSceneId) || sceneList[0] || null;
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="bg-red-900/50 border border-red-500 rounded-lg p-6 max-w-md">
+          <p className="text-red-200">{error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-black overflow-x-hidden">
-      <div className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <button onClick={() => navigate(-1)} className="flex items-center text-gray-600 hover:text-gray-900">
-            <ArrowLeft className="w-5 h-5 mr-2" /> Retour
-          </button>
-          <div>
-            <div className="text-2xl font-bold text-gray-900">
-              {currentMeta ? `${currentMeta.room}${currentMeta.floor ? ' — Étage ' + currentMeta.floor : ''}` : artwork.title}
-            </div>
-            {currentMeta && <div className="text-sm text-gray-600">{currentMeta.description}</div>}
-          </div>
-          <div style={{ width: 64 }} />
-        </div>
-      </div>
+    <div 
+      ref={containerRef}
+      className="relative w-full h-screen bg-black overflow-hidden select-none"
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
+      {/* Panorama */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
+        style={{
+          backgroundImage: `url(${currentScene?.panorama})`,
+          transform: `translate(${viewAngle.yaw * 2}px, ${viewAngle.pitch * 1.5}px) scale(1.3)`,
+          cursor: isDragging ? 'grabbing' : 'grab'
+        }}
+      />
 
-      <div className="relative h-[calc(100vh-220px)] sm:h-[calc(100vh-180px)] md:h-[calc(100vh-160px)]">
-        <div id="panorama" ref={containerRef} style={{ width: '100%', height: '100%' }} />
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
 
-        <div
-          aria-hidden
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: '#000',
-            pointerEvents: isTransitioning ? 'auto' : 'none',
-            opacity: isTransitioning ? 0.95 : 0,
-            transition: 'opacity 350ms ease'
-          }}
-        >
-          <div style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%,-50%)' }}>
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-white" />
-          </div>
-        </div>
-
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 sm:left-4 sm:transform-none z-20">
-          <div className="bg-black bg-opacity-60 rounded-lg p-3 flex gap-2 items-center">
-            <button disabled={isTransitioning} onClick={zoomIn} className="text-white px-2 py-1 rounded bg-gray-700">+</button>
-            <button disabled={isTransitioning} onClick={zoomOut} className="text-white px-2 py-1 rounded bg-gray-700">−</button>
-            <button disabled={isTransitioning} onClick={rotateLeft} className="text-white px-2 py-1 rounded bg-gray-700 hidden sm:inline-flex">⟲</button>
-            <button disabled={isTransitioning} onClick={rotateRight} className="text-white px-2 py-1 rounded bg-gray-700 hidden sm:inline-flex">⟳</button>
-            <button disabled={isTransitioning} onClick={resetView} className="text-white px-2 py-1 rounded bg-gray-700">Reset</button>
-            <button disabled={isTransitioning} onClick={toggleFullscreen} className="text-white px-2 py-1 rounded bg-gray-700">⤢</button>
-            <button disabled={isTransitioning} onClick={toggleMute} className="text-white px-2 py-1 rounded bg-gray-700">
-              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-            </button>
-            <button disabled={isTransitioning} onClick={toggleInfo} className="text-white px-3 py-1 rounded bg-blue-600">
-              {isInfoVisible ? 'Infos' : 'Afficher'}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white py-3 px-3 sm:px-4 shadow-inner">
-        <div className="max-w-7xl mx-auto flex items-center gap-3 overflow-x-auto">
-          {sceneList.map((s, idx) => (
-            <button
-              key={s.id}
-              onClick={() => loadScene(s.id)}
-              disabled={isTransitioning}
-              className={`flex flex-col flex-shrink-0 items-center text-center p-1 rounded ${s.id === currentSceneId ? 'ring-2 ring-blue-500' : ''}`}
+      {/* Header */}
+      <div className="absolute top-0 left-0 right-0 p-4 z-20">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/')}
+              className="bg-black/50 backdrop-blur-md text-white p-3 rounded-xl hover:bg-black/70 transition"
             >
-              <img
-                src={s.thumb}
-                alt={s.title}
-                className="w-24 h-14 sm:w-32 sm:h-20 md:w-40 md:h-24 object-cover rounded"
-                style={{ objectFit: 'cover' }}
-              />
-              <div className="text-xs sm:text-sm text-gray-700 mt-1">{s.room}</div>
-              <div className="text-[10px] text-gray-500 mt-0.5">#{idx + 1}</div>
-            </button>
-          ))}
-          {sceneList.length === 0 && (
-            <div className="text-red-600">Aucune image panoramique disponible. Placez vos fichiers dans public/panoramas et mettez les chemins dans src/data/musee1.json.</div>
-          )}
+              <Home className="w-5 h-5" />
+            </motion.button>
+            
+            <div className="bg-black/50 backdrop-blur-md rounded-xl px-5 py-3">
+              <h1 className="text-white text-lg font-bold">{currentScene?.title}</h1>
+              <p className="text-gray-300 text-sm">{currentScene?.description}</p>
+            </div>
+          </div>
+
+          <div className="flex gap-2">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowMap(!showMap)}
+              className={`backdrop-blur-md text-white p-3 rounded-xl transition ${
+                showMap ? 'bg-blue-600' : 'bg-black/50 hover:bg-black/70'
+              }`}
+            >
+              <Map className="w-5 h-5" />
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowInfo(!showInfo)}
+              className={`backdrop-blur-md text-white p-3 rounded-xl transition ${
+                showInfo ? 'bg-blue-600' : 'bg-black/50 hover:bg-black/70'
+              }`}
+            >
+              <Info className="w-5 h-5" />
+            </motion.button>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleFullscreen}
+              className="bg-black/50 backdrop-blur-md text-white p-3 rounded-xl hover:bg-black/70 transition"
+            >
+              {isFullscreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+            </motion.button>
+          </div>
         </div>
       </div>
 
-      {isInfoVisible && currentMeta && (
-        <div className="fixed left-0 right-0 bottom-0 sm:bottom-28 sm:right-4 sm:left-auto sm:max-w-sm sm:rounded-lg bg-white bg-opacity-95 p-3 z-30">
-          <div className="max-w-7xl mx-auto sm:mx-0">
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">{currentMeta.room}</h3>
-            {currentMeta.floor && <p className="text-gray-600 mb-1">Étage {currentMeta.floor}</p>}
-            {currentMeta.description && <p className="text-sm text-gray-600 mt-1">{currentMeta.description}</p>}
+      {/* Hotspots */}
+      <AnimatePresence>
+        {currentScene?.hotSpots.map((hotspot, index) => {
+          const pos = calculateHotspotPosition(hotspot);
+          
+          if (!pos.isVisible) return null;
+
+          const isArtwork = hotspot.type === 'artwork';
+          const isScene = hotspot.type === 'scene';
+
+          return (
+            <motion.button
+              key={index}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              whileHover={{ scale: 1.15 }}
+              className={`absolute ${
+                isScene ? 'bg-blue-500/90 hover:bg-blue-600' : 
+                isArtwork ? 'bg-amber-500/90 hover:bg-amber-600' : 
+                'bg-purple-500/90 hover:bg-purple-600'
+              } text-white px-4 py-2 rounded-full shadow-xl backdrop-blur-sm transition-all z-10`}
+              style={{
+                left: `${pos.x}%`,
+                top: `${pos.y}%`,
+                transform: 'translate(-50%, -50%)'
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (isScene) {
+                  navigateToScene(hotspot.sceneId);
+                } else if (isArtwork) {
+                  selectArtworkById(hotspot.artworkId);
+                }
+              }}
+            >
+              {isScene && <Navigation className="w-4 h-4 inline mr-2" />}
+              {isArtwork && <Eye className="w-4 h-4 inline mr-2" />}
+              <span className="text-sm font-medium">{hotspot.text}</span>
+            </motion.button>
+          );
+        })}
+      </AnimatePresence>
+
+      {/* Navigation des scènes */}
+      <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-20">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={goToPreviousScene}
+          className="bg-black/50 backdrop-blur-md text-white p-4 rounded-full hover:bg-black/70 transition shadow-xl"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </motion.button>
+      </div>
+
+      <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-20">
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={goToNextScene}
+          className="bg-black/50 backdrop-blur-md text-white p-4 rounded-full hover:bg-black/70 transition shadow-xl"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </motion.button>
+      </div>
+
+      {/* Contrôles inférieurs */}
+      <div className="absolute bottom-6 left-0 right-0 z-20">
+        <div className="flex items-center justify-center gap-4">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setAutoRotate(!autoRotate)}
+            className={`backdrop-blur-md text-white p-3 rounded-xl transition ${
+              autoRotate ? 'bg-blue-600' : 'bg-black/50 hover:bg-black/70'
+            }`}
+          >
+            {autoRotate ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsMuted(!isMuted)}
+            className="bg-black/50 backdrop-blur-md text-white p-3 rounded-xl hover:bg-black/70 transition"
+          >
+            {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+          </motion.button>
+
+          <div className="bg-black/50 backdrop-blur-md rounded-xl px-4 py-2">
+            <p className="text-white text-sm font-medium">
+              Salle {tourData?.scenes.findIndex(s => s.id === currentScene?.id) + 1} / {tourData?.scenes.length}
+            </p>
           </div>
         </div>
-      )}
+      </div>
+
+      {/* Map Overlay */}
+      <AnimatePresence>
+        {showMap && (
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 300 }}
+            className="absolute top-20 right-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 max-w-sm z-30 max-h-[70vh] overflow-y-auto"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-white text-lg font-bold flex items-center gap-2">
+                <MapPin className="w-5 h-5" />
+                Plan du musée
+              </h3>
+              <button 
+                onClick={() => setShowMap(false)} 
+                className="text-gray-400 hover:text-white transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="space-y-2">
+              {tourData?.scenes.map((scene) => (
+                <motion.button
+                  key={scene.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    navigateToScene(scene.id);
+                    setShowMap(false);
+                  }}
+                  className={`w-full text-left p-3 rounded-lg transition ${
+                    scene.id === currentScene?.id
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
+                  }`}
+                >
+                  <div className="font-medium">{scene.title}</div>
+                  <div className="text-sm opacity-75">{scene.room} - {scene.floor}</div>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Info Panel - Œuvres */}
+      <AnimatePresence>
+        {showInfo && (
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 300 }}
+            className="absolute top-20 right-4 bg-black/95 backdrop-blur-xl rounded-2xl p-6 w-80 z-30 max-h-[70vh] overflow-y-auto"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-white text-lg font-bold">Œuvres de la salle</h3>
+              <button 
+                onClick={() => setShowInfo(false)}
+                className="text-gray-400 hover:text-white transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            
+            <div className="space-y-3">
+              {artworks.map((artwork) => (
+                <motion.button
+                  key={artwork.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-gray-800/50 rounded-lg p-4 text-left hover:bg-gray-700/50 transition"
+                  onClick={() => {
+                    setSelectedArtwork(artwork);
+                    setShowInfo(false);
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={artwork.image}
+                      alt={artwork.title}
+                      className="w-16 h-16 object-cover rounded"
+                    />
+                    <div className="flex-1">
+                      <h4 className="text-white font-medium text-sm">{artwork.title}</h4>
+                      <p className="text-gray-400 text-xs">par {artwork.artist}</p>
+                      <span className="inline-block mt-1 text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded">
+                        {artwork.category}
+                      </span>
+                    </div>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Détails de l'œuvre sélectionnée */}
+      <AnimatePresence>
+        {selectedArtwork && (
+          <motion.div
+            initial={{ opacity: 0, y: 100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 100 }}
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 w-full max-w-2xl mx-4 z-30"
+          >
+            <div className="bg-black/95 backdrop-blur-xl rounded-2xl p-6">
+              <div className="flex items-start gap-4">
+                <img
+                  src={selectedArtwork.image}
+                  alt={selectedArtwork.title}
+                  className="w-24 h-24 object-cover rounded-lg"
+                />
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-white mb-1">{selectedArtwork.title}</h3>
+                  <p className="text-gray-300 text-sm mb-2">par {selectedArtwork.artist}</p>
+                  <p className="text-gray-400 text-sm mb-3">{selectedArtwork.description}</p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full">
+                      {selectedArtwork.category}
+                    </span>
+                    <span className="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full">
+                      {selectedArtwork.year}
+                    </span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedArtwork(null)}
+                  className="text-gray-400 hover:text-white transition"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Instructions */}
+      <AnimatePresence>
+        {!isDragging && !showMap && !showInfo && !selectedArtwork && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center pointer-events-none z-10"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <p className="text-lg font-light mb-2">🖱️ Cliquez et glissez pour explorer</p>
+              <p className="text-sm opacity-75">Cliquez sur les points pour interagir</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Loading Overlay */}
+      <AnimatePresence>
+        {loading && currentScene && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-40"
+          >
+            <div className="text-center">
+              <Loader className="w-12 h-12 text-blue-500 animate-spin mx-auto mb-4" />
+              <p className="text-white text-lg">Chargement de la salle...</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

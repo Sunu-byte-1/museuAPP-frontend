@@ -1,0 +1,122 @@
+[
+    {
+      "id": 1,
+      "name": "Arbre Or",
+      "description": "Arbre en or avec logo MCN",
+      "price": 5000,
+      "images": [
+        "/public/shop/arbreor.jpg",
+        "/public/shop/arbreor1.jpg"
+      ],
+      "stock": 25,
+      "category": "Accessoires"
+    },
+    {
+      "id": 2,
+      "name": "T-Shirt MCN",
+      "description": "T-shirt 100% coton avec motif artistique",
+      "price": 8000,
+      "images": [
+        "/public/shop/tchirt.jpg",
+        "/public/shop/tchirt1.jpg"
+      ],
+      "stock": 40,
+      "category": "Textile"
+    },
+    {
+      "id": 3,
+      "name": "balafon",
+      "description": "balafon avec logo MCN",
+      "price": 3500,
+      "images": [
+        "/public/shop/balafon.jpg",
+        "/public/shop/balafon1.jpg"
+      ],
+      "stock": 15,
+      "category": "Papeterie"
+    },
+    {
+      "id": 4,
+      "name": "statut",
+      "description": "statut avec logo MCN",
+      "price": 4500,
+      "images": [
+        "/public/shop/statut.jpg",
+        "/public/shop/statut1.jpg"
+      ],
+      "stock": 30,
+      "category": "Textile"
+    },
+    {
+      "id": 5,
+      "name": "Sac marron",
+      "description": "Sac marron en cuir",
+      "price": 2500,
+      "images": [
+        "/public/shop/marron.jpg",
+        "/public/shop/marron1.jpg"
+      ],
+      "stock": 50,
+      "category": "Papeterie"
+    },
+    {
+      "id": 6,
+      "name": "Objet Art",
+      "description": "Objet Art fais avec des perles et su bois",
+      "price": 1500,
+      "images": [
+        "/public/shop/fardeau.jpg",
+        "/public/shop/fardeau1.jpg"
+      ],
+      "stock": 60,
+      "category": "Accessoires"
+    },
+    {
+      "id": 7,
+      "name": "Sweat à Capuche",
+      "description": "Sweat confortable avec logo brodé",
+      "price": 15000,
+      "images": [
+        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=600&auto=format&fit=crop"
+      ],
+      "stock": 20,
+      "category": "Textile"
+    },
+    {
+      "id": 9,
+      "name": "Casquette MCN",
+      "description": "Casquette ajustable avec logo brodé",
+      "price": 6000,
+      "images": [
+        "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?q=80&w=600&auto=format&fit=crop"
+      ],
+      "stock": 45,
+      "category": "Accessoires"
+    },
+    {
+      "id": 10,
+      "name": "Poster Moderne",
+      "description": "Affiche A1 collection contemporaine",
+      "price": 5500,
+      "images": [
+        "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?q=80&w=600&auto=format&fit=crop"
+      ],
+      "stock": 18,
+      "category": "Papeterie"
+    },
+    {
+      "id": 11,
+      "name": "Sac à Dos MCN",
+      "description": "Sac à dos spacieux et résistant",
+      "price": 12000,
+      "images": [
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=600&auto=format&fit=crop"
+      ],
+      "stock": 22,
+      "category": "Textile"
+    }
+  ]

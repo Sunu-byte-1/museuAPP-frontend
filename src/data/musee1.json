@@ -5,36 +5,312 @@
   "scenes": [
     {
       "id": "salle-1",
-      "title": "Salle 1",
+      "title": "Afrique berceau de l'humanité",
       "room": "Salle 1",
       "floor": "RDC",
       "description": "Entrée principale, œuvres historiques",
-      "panorama": "/panoramas/room1.jpg",
-      "thumb": "/panoramas/room1.jpg",
+      "panorama": "/panoramas/room1_1.jpg",
+      "thumb": "/panoramas/room1_1.jpg",
       "hotSpots": [
-        { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 2", "sceneId": "salle-2" }
+        { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 1-1", "sceneId": "salle-1-1" }
+      ]
+    },
+    {
+      "id": "salle-1-1",
+      "title": "Afrique berceau de l'humanité",
+      "room": "Salle 1-1",
+      "floor": "RDC",
+      "description": "Collection moderne",
+      "panorama": "/panoramas/room1_2.jpg",
+      "thumb": "/panoramas/room1_2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": -90, "type": "scene", "text": "Retour Salle 1-2", "sceneId": "salle-1-2" }
+      ]
+    },
+    {
+      "id": "salle-1-2",
+      "title": "Afrique berceau de l'humanité",
+      "room": "Salle 1-2",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room1_3.jpg",
+      "thumb": "/panoramas/room1_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1-3", "sceneId": "salle-1-3" }
+      ]
+    },
+    {
+      "id": "salle-1-3",
+      "title": "Afrique berceau de l'humanité",
+      "room": "Salle 1-4",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room1_4.jpg",
+      "thumb": "/panoramas/room1_4.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1-4", "sceneId": "salle-1-4" }
+      ]
+    },
+    {
+      "id": "salle-1-4",
+      "title": "Afrique berceau de l'humanité",
+      "room": "Salle 1-4",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room1_4.jpg",
+      "thumb": "/panoramas/room1_4.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2" }
       ]
     },
     {
       "id": "salle-2",
-      "title": "Salle 2",
+      "title": "Senegal 2021-2023",
       "room": "Salle 2",
-      "floor": "RDC",
-      "description": "Collection moderne",
-      "panorama": "/panoramas/room2.jpg",
-      "thumb": "/panoramas/room2.jpg",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room2_1.jpg",
+      "thumb": "/panoramas/room2_1.jpg",
       "hotSpots": [
-        { "pitch": 0, "yaw": -90, "type": "scene", "text": "Retour Salle 1", "sceneId": "salle-1" }
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2-1" }
+      ]
+    },
+    {
+      "id": "salle-2-1",
+      "title": "Senegal 2021-2023",
+      "room": "Salle 2-1",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room2_2.jpg",
+      "thumb": "/panoramas/room2_2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-2", "sceneId": "salle-2-2" }
+      ]
+    },
+    {
+      "id": "salle-2-2",
+      "title": "Senegal 2021-2023",
+      "room": "Salle 2-2",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room2_3.jpg",
+      "thumb": "/panoramas/room2_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-3", "sceneId": "salle-2-3" }
+      ]
+    },
+    {
+      "id": "salle-2-3",
+      "title": "Senegal 2021-2023",
+      "room": "Salle 2-3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room2_4.jpg",
+      "thumb": "/panoramas/room2_4.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-4", "sceneId": "salle-2-4" }
+      ]
+    },
+    {
+      "id": "salle-2-4",
+      "title": "Senegal 2021-2023",
+      "room": "Salle 2-4",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room2_5.jpg",
+      "thumb": "/panoramas/room2_5.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3", "sceneId": "salle-3" }
       ]
     },
     {
       "id": "salle-3",
-      "title": "Salle 3",
+      "title": "Tahawayou jiguen",
       "room": "Salle 3",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room3.jpg",
-      "thumb": "/panoramas/room3.jpg",
+      "panorama": "/panoramas/room3_1.jpg",
+      "thumb": "/panoramas/room3_1.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-1", "sceneId": "salle-3-1" }
+      ]
+    },
+    {
+      "id": "salle-3-1",
+      "title": "Tahawayou jiguen",
+      "room": "Salle 3-1",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room3_2.jpg",
+      "thumb": "/panoramas/room3_2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-2", "sceneId": "salle-3-2" }
+      ]
+    },
+    {
+      "id": "salle-3-2",
+      "title": "Tahawayou jiguen",
+      "room": "Salle 3-2",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room3_3.jpg",
+      "thumb": "/panoramas/room3_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-3", "sceneId": "salle-3-3" }
+      ]
+    },
+    {
+      "id": "salle-3-3",
+      "title": "Tahawayou jiguen",
+      "room": "Salle 3-3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room3_3.jpg",
+      "thumb": "/panoramas/room3_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4", "sceneId": "salle-4" }
+      ]
+    },
+    {
+      "id": "salle-4",
+      "title": "Decouvertes",
+      "room": "Salle 4",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_1.jpg",
+      "thumb": "/panoramas/room4_1.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-1", "sceneId": "salle-4-1" }
+      ]
+    },
+    {
+      "id": "salle-4-1",
+      "title": "Decouvertes",
+      "room": "Salle 4-1",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_1.jpg",
+      "thumb": "/panoramas/room4_1.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-2", "sceneId": "salle-4-2" }
+      ]
+    },
+    {
+      "id": "salle-4-2",
+      "title": "Decouvertes",
+      "room": "Salle 4-2",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_2.jpg",
+      "thumb": "/panoramas/room4_2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-3", "sceneId": "salle-4-3" }
+      ]
+    },
+    {
+      "id": "salle-4-3",
+      "title": "Decouvertes",
+      "room": "Salle 4-3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_3.jpg",
+      "thumb": "/panoramas/room4_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-4", "sceneId": "salle-4-4" }
+      ]
+    },
+    {
+      "id": "salle-4-4",
+      "title": "Decouvertes",
+      "room": "Salle 4-4",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_4.jpg",
+      "thumb": "/panoramas/room4_4.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-5", "sceneId": "salle-4-5" }
+      ]
+    },
+    {
+      "id": "salle-4-5",
+      "title": "Decouvertes",
+      "room": "Salle 5",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_5.jpg",
+      "thumb": "/panoramas/room4_5.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-6", "sceneId": "salle-4-6" }
+      ]
+    },
+    {
+      "id": "salle-4-6",
+      "title": "Decouvertes",
+      "room": "Salle 4-6",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room4_6.jpg",
+      "thumb": "/panoramas/room4_6.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5", "sceneId": "salle-5" }
+      ]
+    },
+    {
+      "id": "salle-5",
+      "title": "Colonisation",
+      "room": "Salle 5",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room5_1.jpg",
+      "thumb": "/panoramas/room5_1.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-1", "sceneId": "salle-5-1" }
+      ]
+    },
+    {
+      "id": "salle-5-1",
+      "title": "Colonisation",
+      "room": "Salle 5-1",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room5_2.jpg",
+      "thumb": "/panoramas/room5_2.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-2", "sceneId": "salle-5-2" }
+      ]
+    },
+    {
+      "id": "salle-5-2",
+      "title": "Colonisation",
+      "room": "Salle 5-2",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room5_3.jpg",
+      "thumb": "/panoramas/room5_3.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-3", "sceneId": "salle-5-3" }
+      ]
+    },
+    {
+      "id": "salle-5-3",
+      "title": "Independance",
+      "room": "Salle 5-3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room5_4.jpg",
+      "thumb": "/panoramas/room5_4.jpg",
+      "hotSpots": [
+        { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-4", "sceneId": "salle-5-4" }
+      ]
+    },
+    {
+      "id": "salle-5-4",
+      "title": "Colonisation",
+      "room": "Salle 5-3",
+      "floor": "1",
+      "description": "Salle contemporaine",
+      "panorama": "/panoramas/room5_5.jpg",
+      "thumb": "/panoramas/room5_5.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1", "sceneId": "salle-1" }
       ]
