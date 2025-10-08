@@ -213,7 +213,7 @@ export default function PurchaseTicket() {
                   <div className="border-t border-gray-200 pt-4">
                     <div className="flex justify-between items-center text-lg font-semibold text-gray-900">
                       <span>Total:</span>
-                      <span>{getCartTotal()}€</span>
+                      <span>{getCartTotal()}FCFA</span>
                     </div>
                   </div>
                   <div className="mt-3 text-sm text-gray-600">

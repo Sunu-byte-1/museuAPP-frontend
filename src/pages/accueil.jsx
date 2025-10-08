@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import { useAdmin } from '../context/AdminContext';
 import eventsData from '../data/events.json';
 //import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
-import musee from '../assets/historique/musee.webp';
+//import musee from '../assets/historique/musee.webp';
 import museeImage from '../assets/historique/NNN.jpg'
 
  /**
@@ -41,14 +41,15 @@ function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-900">
       {/* Video Background */}
-      <video
+      {/* <video
         autoPlay
         muted
         loop
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/assets/hero/6.mp4" type="video/mp4" />
-      </video>
+      </video> */}
+      <img src="https://res.cloudinary.com/daaiip4ou/image/upload/v1759945890/NNN_oah8vy.jpg" alt="" className="absolute inset-0 w-full h-full object-cover"/>
       
       {/* Overlay avec gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70 dark:from-white/20 dark:via-white/10 dark:to-white/30"></div>
@@ -281,7 +282,7 @@ function HistorySection() {
             <div className="space-y-6 mt-8">
             
               <img
-                src={musee}
+                src={museeImage}
                 alt="Inauguration"
                 loading="lazy" decoding="async" sizes="(max-width: 768px) 100vw, 50vw"
                 className="rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"

@@ -82,7 +82,7 @@ export default function AdminDashboard() {
             </div>
             <div className="ml-4">
               <p className="text-sm font-medium text-gray-600">Revenus</p>
-              <p className="text-2xl font-bold text-gray-900">{statistics.totalRevenue.toLocaleString()}€</p>
+              <p className="text-2xl font-bold text-gray-900">{statistics.totalRevenue.toLocaleString()} Fcfa</p>
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
             <p className="text-gray-600">Billets vendus aujourd'hui</p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold text-green-600 mb-2">€15,678</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">15,678</div>
             <p className="text-gray-600">Revenus aujourd'hui</p>
           </div>
           <div className="text-center">
