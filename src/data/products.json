@@ -17,8 +17,9 @@
       "description": "T-shirt 100% coton avec motif artistique",
       "price": 8000,
       "images": [
-        "/public/shop/tchirt.jpg",
-        "/public/shop/tchirt1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921688/tchirt_omjmjq.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921689/tchirt1_swjyxe.jpg"
+        
       ],
       "stock": 40,
       "category": "Textile"
@@ -29,8 +30,8 @@
       "description": "balafon avec logo MCN",
       "price": 3500,
       "images": [
-        "/public/shop/balafon.jpg",
-        "/public/shop/balafon1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921678/balafon1_silric.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921677/balafon_op9hgv.jpg"
       ],
       "stock": 15,
       "category": "Papeterie"
@@ -41,8 +42,8 @@
       "description": "statut avec logo MCN",
       "price": 4500,
       "images": [
-        "/public/shop/statut.jpg",
-        "/public/shop/statut1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921685/statut_bgxtje.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921685/statut1_ppmto7.jpg"
       ],
       "stock": 30,
       "category": "Textile"
@@ -53,8 +54,8 @@
       "description": "Sac marron en cuir",
       "price": 2500,
       "images": [
-        "/public/shop/marron.jpg",
-        "/public/shop/marron1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921684/marron1_nujrce.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921683/marron_kpgjrh.jpg"
       ],
       "stock": 50,
       "category": "Papeterie"
@@ -65,8 +66,8 @@
       "description": "Objet Art fais avec des perles et su bois",
       "price": 1500,
       "images": [
-        "/public/shop/fardeau.jpg",
-        "/public/shop/fardeau1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921679/fardeau_yfykfu.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921682/fardeau1_nii2ma.jpg"
       ],
       "stock": 60,
       "category": "Accessoires"
