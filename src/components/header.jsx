@@ -217,16 +217,16 @@ import React, { useEffect, useState } from "react";
 
             {/* Mobile Menu Button */}
             {/* Boutons visibles uniquement sur mobile: toggle thème + hamburger */}
-            <div className="lg:hidden flex items-center space-x-2">
+            <div className="lg:hidden flex items-center space-x-2 ">
               <button
                 onClick={handleToggleTheme}
-                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-yellow-400 hover:scale-110 transition"
+                className="p-2 rounded-full bg-gray-50 text-orange-500  hover:scale-110 transition"
               >
                 {darkMode ? <Sun size={20} /> : <Moon size={20} />}
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition"
+                className="p-2 rounded-full bg-gray-200 text-orange-500 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
               >
                 {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </button>
@@ -240,55 +240,63 @@ import React, { useEffect, useState } from "react";
             affiche soit le panneau utilisateur (avec logout), soit le lien de connexion.
           */}
           {mobileMenuOpen && (
-            <div className="lg:hidden bg-white  border-t border-gray-200 dark:border-gray-700">
-              <div className="px-4 py-2 space-y-1">
+          
+            <div className="lg:hidden bg-white-100  border-t border-gray-200 0">
+              <div className="px-4 py-2 space-y-1 " >
                 <Link
                   to="/"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition "
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Accueil
                 </Link>
                 <Link
                   to="/billet"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Acheter un billet
                 </Link>
                 <Link
+                  to="/HomePage"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Visite virtuelle
+                </Link>
+                <Link
                   to="/boutique"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Boutique
                 </Link>
                 <Link
                   to="/histoire"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Histoire
                 </Link>
                 <Link
                   to="/scan"
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                  className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Scanner
                 </Link>
                 
                 {/* Mobile Auth */}
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-2 mt-2">
+                <div className="border-t border-gray-200  pt-2 mt-2">
                   {isAuthenticated ? (
                     <div className="space-y-1">
-                      <div className="px-3 py-2 text-sm text-gray-500 dark:text-gray-400">
+                      <div className="px-3 py-2 text-sm text-gray-500 ">
                         Connecté en tant que {user?.firstName}
                       </div>
                       {user?.role === 'admin' && (
                         <Link
                           to="/admin/dashboard"
-                          className="block px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                          className="block px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           Administration
@@ -299,7 +307,7 @@ import React, { useEffect, useState } from "react";
                           handleLogout();
                           setMobileMenuOpen(false);
                         }}
-                        className="flex items-center w-full px-3 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition"
+                        className="flex items-center w-full px-3 py-2 text-gray-700  hover:bg-gray-100  rounded-lg transition"
                       >
                         <LogOut className="w-4 h-4 mr-2" />
                         Se déconnecter
@@ -317,6 +325,7 @@ import React, { useEffect, useState } from "react";
                 </div>
               </div>
             </div>
+       
           )}
         </header>
         

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import eventsData from '../data/events.json';
 //import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import musee from '../assets/historique/musee.webp';
+import museeImage from '../assets/historique/NNN.jpg'
 
  /**
   * Page d'accueil
@@ -30,7 +31,8 @@ import {
   Eye,
   Building,
   Calendar,
-  TrendingUp
+  TrendingUp,
+  Compass
 } from 'lucide-react';
 
 // Composant Hero Section
@@ -60,11 +62,7 @@ function HeroSection() {
       
       {/* Content */}
       <div className="relative z-10 text-center text-white dark:text-gray-100 max-w-5xl mx-auto px-4">
-        <div className="mb-6">
-          <span className="inline-block px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-full mb-4">
-            Musée des Civilisations Noires
-          </span>
-        </div>
+        
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 font-serif leading-tight">
           Bienvenue au Musée des Civilisations Noires
         </h1>
@@ -121,36 +119,46 @@ function ExperienceSection() {
       link: "/scan",
       color: "bg-gradient-to-br from-purple-500 to-purple-600",
       hoverColor: "hover:from-purple-600 hover:to-purple-700"
+    },
+    {
+      title: "decouvrir les oeuvres",
+      description: "Découvrez nos œuvres avec le maximum de details",
+      icon: Compass,
+      link: "/decouvrir",
+      color: "bg-gradient-to-br from-gray-500 to-yellow-600",
+      hoverColor: "hover:from-green-600 hover:to-green-700"
     }
   ];
 // dans cette section je veux que le coux experience soit à droite et à gauche les horaires du musee,
   return (
     <section className="py-20 bg-[#f5f4ef] dark:bg-museum-darkBg transition-colors duration-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-museum-light mb-4 transition-colors duration-500">
             Choisissez votre expérience
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 transition-colors duration-500">
+          <p className="text-lg text-gray-500 transition-colors duration-500">
             Trois façons de découvrir notre patrimoine culturel
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 md:gap-8">
           {experiences.map((exp, index) => {
             const Icon = exp.icon;
             return (
               <Link
                 key={index}
                 to={exp.link}
-                className="group bg-white dark:bg-museum-dark rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3"
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl 
+                transition-all duration-500 transform hover:-translate-y-3 
+                flex flex-col justify-center items-center p-1 pt-2"
               >
-                <div className={`w-20 h-20 ${exp.color} ${exp.hoverColor} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
-                  <Icon className="w-10 h-10 text-white" />
+                <div className={`w-15 h-15 ${exp.color} ${exp.hoverColor} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-museum-light mb-4 text-center group-hover:text-orange-600 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900  mb-4 text-center group-hover:text-orange-600 transition-colors duration-300">
                   {exp.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-center leading-relaxed transition-colors duration-300">
+                <p className="hidden md:block text-gray-600 text-center leading-relaxed transition-colors duration-300">
                   {exp.description}
                 </p>
                 <div className="mt-6 flex items-center justify-center text-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -170,6 +178,38 @@ function ExperienceSection() {
 function HistorySection() {
   const [isVisible, setIsVisible] = useState(false);
 
+
+
+  const CountUp = ({ end, duration = 2000, suffix = "" }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let start = 0;
+    const increment = end / (duration / 16); // environ 60 FPS
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        clearInterval(timer);
+        setCount(end);
+      } else {
+        setCount(Math.ceil(start));
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [end, duration]);
+
+  return (
+    <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+      {count}{suffix}
+    </span>
+  );
+};
+
+
+
+
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -187,6 +227,8 @@ function HistorySection() {
 
     return () => observer.disconnect();
   }, []);
+
+  
 
   const stats = [
     { number: 500, label: "œuvres exposées", suffix: "+" },
@@ -255,7 +297,7 @@ function HistorySection() {
               <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
                 <div className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 transition-all duration-1000 group-hover:scale-110 ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}
                      style={{ transitionDelay: `${index * 200}ms` }}>
-                  {isVisible ? stat.number : 0}{stat.suffix}
+                  {isVisible ? <CountUp end={stat.number} suffix={stat.suffix} duration={2000} /> : 0}
                 </div>
                 <div className="text-lg font-semibold text-gray-800  group-hover:text-orange-600 transition-colors duration-300">
                   {stat.label}
