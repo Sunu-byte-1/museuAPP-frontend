@@ -57,7 +57,7 @@
       "room": "Salle 1-4",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room1_4.jpg",
+      "panorama": "/public/panoramas/room1_4.jpg",
       "thumb": "/panoramas/room1_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2" }
@@ -68,9 +68,9 @@
       "title": "Senegal 2021-2023",
       "room": "Salle 2",
       "floor": "1",
-      "description": "Salle contemporaine",
+      "description" : "panorama" ,
       "panorama": "/panoramas/room2_1.jpg",
-      "thumb": "/panoramas/room2_1.jpg",
+      "thumb": "/public/panoramas/room2_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-1", "sceneId": "salle-2-1" }
       ]
@@ -80,9 +80,9 @@
       "title": "Senegal 2021-2023",
       "room": "Salle 2-1",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room2_2.jpg",
-      "thumb": "/panoramas/room2_2.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room2_2.jpg",
+      "thumb": "/public/panoramas/room2_2.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-2", "sceneId": "salle-2-2" }
       ]
@@ -92,9 +92,9 @@
       "title": "Senegal 2021-2023",
       "room": "Salle 2-2",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room2_3.jpg",
-      "thumb": "/panoramas/room2_3.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room2_3.jpg",
+      "thumb": "/public/panoramas/room2_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-3", "sceneId": "salle-2-3" }
       ]
@@ -104,9 +104,9 @@
       "title": "Senegal 2021-2023",
       "room": "Salle 2-3",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room2_4.jpg",
-      "thumb": "/panoramas/room2_4.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room2_4.jpg",
+      "thumb": "/public/panoramas/room2_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 2-4", "sceneId": "salle-2-4" }
       ]
@@ -116,9 +116,9 @@
       "title": "Senegal 2021-2023",
       "room": "Salle 2-4",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room2_5.jpg",
-      "thumb": "/panoramas/room2_5.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room2_5.jpg",
+      "thumb": "/public/panoramas/room2_5.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3", "sceneId": "salle-3" }
       ]
@@ -128,9 +128,9 @@
       "title": "Tahawayou jiguen",
       "room": "Salle 3",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room3_1.jpg",
-      "thumb": "/panoramas/room3_1.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room3_1.jpg",
+      "thumb": "/public/panoramas/room3_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-1", "sceneId": "salle-3-1" }
       ]
@@ -140,9 +140,9 @@
       "title": "Tahawayou jiguen",
       "room": "Salle 3-1",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room3_2.jpg",
-      "thumb": "/panoramas/room3_2.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room3_2.jpg",
+      "thumb": "/public/panoramas/room3_2.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-2", "sceneId": "salle-3-2" }
       ]
@@ -152,9 +152,9 @@
       "title": "Tahawayou jiguen",
       "room": "Salle 3-2",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room3_3.jpg",
-      "thumb": "/panoramas/room3_3.jpg",
+      "description" : "panorama" ,
+      "panorama" : "/public/panoramas/room3_3.jpg",
+      "thumb": "/public/panoramas/room3_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 3-3", "sceneId": "salle-3-3" }
       ]
@@ -164,9 +164,9 @@
       "title": "Tahawayou jiguen",
       "room": "Salle 3-3",
       "floor": "1",
-      "description": "Salle contemporaine",
-      "panorama": "/panoramas/room3_3.jpg",
-      "thumb": "/panoramas/room3_3.jpg",
+      "description" : "panorama" ,
+      "panorama": "/public/panoramas/room3_3.jpg",
+      "thumb": "/public/panoramas/room3_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4", "sceneId": "salle-4" }
       ]
@@ -177,8 +177,8 @@
       "room": "Salle 4",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_1.jpg",
-      "thumb": "/panoramas/room4_1.jpg",
+      "panorama": "/public/panoramas/room4_1.jpg",
+      "thumb": "/public/panoramas/room4_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-1", "sceneId": "salle-4-1" }
       ]
@@ -189,8 +189,8 @@
       "room": "Salle 4-1",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_1.jpg",
-      "thumb": "/panoramas/room4_1.jpg",
+      "panorama": "/public/panoramas/room4_1.jpg",
+      "thumb": "/public/panoramas/room4_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-2", "sceneId": "salle-4-2" }
       ]
@@ -201,8 +201,8 @@
       "room": "Salle 4-2",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_2.jpg",
-      "thumb": "/panoramas/room4_2.jpg",
+      "panorama": "/public/panoramas/room4_2.jpg",
+      "thumb": "/public/panoramas/room4_2.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-3", "sceneId": "salle-4-3" }
       ]
@@ -213,8 +213,8 @@
       "room": "Salle 4-3",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_3.jpg",
-      "thumb": "/panoramas/room4_3.jpg",
+      "panorama": "/public/panoramas/room4_3.jpg",
+      "thumb": "/public/panoramas/room4_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-4", "sceneId": "salle-4-4" }
       ]
@@ -225,8 +225,8 @@
       "room": "Salle 4-4",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_4.jpg",
-      "thumb": "/panoramas/room4_4.jpg",
+      "panorama": "/public/panoramas/room4_4.jpg",
+      "thumb": "/public/panoramas/room4_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-5", "sceneId": "salle-4-5" }
       ]
@@ -237,8 +237,8 @@
       "room": "Salle 5",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_5.jpg",
-      "thumb": "/panoramas/room4_5.jpg",
+      "panorama": "/public/panoramas/room4_5.jpg",
+      "thumb": "/public/panoramas/room4_5.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 4-6", "sceneId": "salle-4-6" }
       ]
@@ -249,8 +249,8 @@
       "room": "Salle 4-6",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room4_6.jpg",
-      "thumb": "/panoramas/room4_6.jpg",
+      "panorama": "/public/panoramas/room4_6.jpg",
+      "thumb": "/public/panoramas/room4_6.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5", "sceneId": "salle-5" }
       ]
@@ -261,8 +261,8 @@
       "room": "Salle 5",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room5_1.jpg",
-      "thumb": "/panoramas/room5_1.jpg",
+      "panorama": "/public/panoramas/room5_1.jpg",
+      "thumb": "/public/panoramas/room5_1.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-1", "sceneId": "salle-5-1" }
       ]
@@ -273,8 +273,8 @@
       "room": "Salle 5-1",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room5_2.jpg",
-      "thumb": "/panoramas/room5_2.jpg",
+      "panorama": "/public/panoramas/room5_2.jpg",
+      "thumb": "/public/panoramas/room5_2.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-2", "sceneId": "salle-5-2" }
       ]
@@ -285,8 +285,8 @@
       "room": "Salle 5-2",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room5_3.jpg",
-      "thumb": "/panoramas/room5_3.jpg",
+      "panorama": "/public/panoramas/room5_3.jpg",
+      "thumb": "/public/panoramas/room5_3.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-3", "sceneId": "salle-5-3" }
       ]
@@ -297,8 +297,8 @@
       "room": "Salle 5-3",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room5_4.jpg",
-      "thumb": "/panoramas/room5_4.jpg",
+      "panorama": "/public/panoramas/room5_4.jpg",
+      "thumb": "/public/panoramas/room5_4.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 5-4", "sceneId": "salle-5-4" }
       ]
@@ -309,8 +309,8 @@
       "room": "Salle 5-3",
       "floor": "1",
       "description": "Salle contemporaine",
-      "panorama": "/panoramas/room5_5.jpg",
-      "thumb": "/panoramas/room5_5.jpg",
+      "panorama": "/public/panoramas/room5_5.jpg",
+      "thumb": "/public/panoramas/room5_5.jpg",
       "hotSpots": [
         { "pitch": 0, "yaw": 45, "type": "scene", "text": "Aller à Salle 1", "sceneId": "salle-1" }
       ]
