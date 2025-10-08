@@ -111,20 +111,6 @@
         "es": "FECHA DEL DESCUBRIMIENTO: 1947, por Robert Broom y John T. Robinson LUGAR: Cueva de Sterkfontein (Sudáfrica) EDAD: De 2,8 a 2,6 millones de años"
       }
     },
-     {
-      "id": 9,
-      "etage": "Rez-de-chaussée",
-      "titre": " Crane(Australopithecus)",
-      "type": "Osment",
-      "descriptionCourte": "Australopithecus africanus",
-      "descriptionLongue": "DATE DE LA DECOUVERTE: 1924 LIEU: Taung, pres de Kiberley(Afrique de Sud)<br>AGE: 1,2MA NATURE: Crane, mandibule et endocrane<br>CAPACITE CRANIENNE: 430 a 500CM3 HABITAT: Régions boisées relativement humides",
-      "image": "R9.jpg",
-      "texte": {
-        "fr": "DATE DE LA DECOUVERTE: 1924 LIEU: Taung, pres de Kiberley(Afrique de Sud)<br>AGE: 1,2MA NATURE: Crane, mandibule et endocrane<br>CAPACITE CRANIENNE: 430 a 500CM3 HABITAT: Régions boisées relativement humides",
-        "en": "DATE OF DISCOVERY: 1924 LOCATION: Taung, near Kimberley (South Africa) AGE: 1.2 million years ago NATURE: Skull, mandible, and endocranium CRANIAL CAPACITY: 430–500 cm³ HABITAT: Relatively humid wooded regions",
-        "es": "FECHA DEL DESCUBRIMIENTO: 1924 LUGAR: Taung, cerca de Kimberley (Sudáfrica) EDAD: 1,2 millones de años NATURALEZA: Cráneo, mandíbula y endocráneo CAPACIDAD CRANEAL: 430–500 cm³ HÁBITAT: Regiones boscosas relativamente húmedas"
-      }
-    },
     {
       "id": 10,
       "etage": "Premiere etage",
