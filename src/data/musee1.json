@@ -9,8 +9,8 @@
       "room": "Salle 1",
       "floor": "RDC",
       "description": "Entrée principale, œuvres historiques",
-      "panorama": "/panoramas/room1_1.jpg",
-      "thumb": "/panoramas/room1_1.jpg",
+      "panorama": "https://collection.cloudinary.com/daaiip4ou/8298166d1e98ff9a8d33e72dec6a7175",
+      "thumb": "https://collection.cloudinary.com/daaiip4ou/8298166d1e98ff9a8d33e72dec6a7175",
       "hotSpots": [
         { "pitch": 0, "yaw": 90, "type": "scene", "text": "Aller à Salle 1-1", "sceneId": "salle-1-1" }
       ]
