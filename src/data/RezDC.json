@@ -224,20 +224,6 @@
       }
     },
     {
-      "id": 18,
-      "etage": "Premiere etage",
-      "titre": "Nouvel Horizon",
-      "type": "Photographie",
-      "descriptionCourte": "Une œuvre illustrant un Sénégal renaissant sous un ciel lumineux.",
-      "image": "N9.jpg",
-      "descriptionLongue": "Les couleurs vives et les formes fluides représentent un pays en transformation, tourné vers le futur. Le ciel bleu symbolise la paix retrouvée, tandis que la lumière dorée incarne la promesse d’un nouveau départ sous la direction du peuple.",
-      "texte": {
-        "fr": "Nouvel Horizon célèbre la renaissance d’un Sénégal guidé par la justice et la solidarité.",
-        "en": "New Horizon celebrates the rebirth of a Senegal guided by justice and solidarity.",
-        "es": "Nuevo Horizonte celebra el renacimiento de un Senegal guiado por la justicia y la solidaridad."
-      }
-    },
-    {
       "id": 19,
       "etage": "Deuxieme etage",
       "titre": "Masque nouvelle Guinée",
@@ -270,7 +256,7 @@
       "etage": "Deuxieme etage",
       "titre": ">Masque Demba ou Nimba",
       "type": "Sculpture",
-      "descriptionCourte": ">Masque Demba ou Nimba",
+      "descriptionCourte": "Masque Demba ou Nimba",
       "descriptionLongue": "Guinée Conakry Bois,fibre vegetales,clous tapissiers,pigment 136*50cm",
       "image": "https://res.cloudinary.com/daaiip4ou/image/upload/v1759945891/NN3_nnxk6g.jpg",
       "texte": {

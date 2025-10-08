@@ -5,8 +5,8 @@
       "description": "Arbre en or avec logo MCN",
       "price": 5000,
       "images": [
-        "/public/shop/arbreor.jpg",
-        "/public/shop/arbreor1.jpg"
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921677/arbreor2_yqjpql.jpg",
+        "https://res.cloudinary.com/daaiip4ou/image/upload/v1759921677/arbreor_klwsuu.jpg"
       ],
       "stock": 25,
       "category": "Accessoires"

@@ -6,59 +6,74 @@ import { Link } from 'react-router-dom';
 const sampleArtworks = [
   {
     id: 1,
-    titre: "La Nuit Étoilée",
-    type: "Peinture",
-    image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80"
+    titre: "LES ARDIPITHECINES",
+    type: "carte",
+    image: "https://res.cloudinary.com/daaiip4ou/image/upload/v1759945892/R8_hjaqim.jpg"
   },
   {
     id: 2,
-    titre: "Le Penseur",
-    type: "Sculpture",
-    image: "https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=600&q=80"
+    titre: "Les Tambours de la Renaissance",
+    type: "Photographie",
+    image: "https://res.cloudinary.com/daaiip4ou/image/upload/v1759945887/N3_ete14o.jpg"
   },
   {
     id: 3,
-    titre: "Jardin Japonais",
-    type: "Photographie",
-    image: "https://images.unsplash.com/photo-1528164344705-47542687000d?w=600&q=80"
+    titre: "Masque Demba ou Nimba",
+    type: "Sculpture",
+    image: "https://res.cloudinary.com/daaiip4ou/image/upload/v1759945891/NN3_nnxk6g.jpg"
   },
   {
     id: 4,
-    titre: "Portrait Renaissance",
-    type: "Peinture",
-    image: "https://images.unsplash.com/photo-1578926078623-8e9a2d5e8f3e?w=600&q=80"
+    titre: "Afrique Berceau de l'humanité",
+    type: "Osment",
+    image: "https://res.cloudinary.com/daaiip4ou/image/upload/v1759945892/R7_mwjsuf.jpg"
   }
 ];
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
+    <div className="min-h-50 bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col">
       {/* Header / Hero */}
-      <header className="relative bg-orange-500 text-white py-20 px-6 text-center md:text-left md:px-20 flex flex-col justify-center items-center md:items-start">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
-          Bienvenue au Musée Virtuel
-        </h1>
-        <p className="text-lg md:text-xl mb-8 max-w-xl">
-          Explorez l’art comme jamais auparavant. Plongez dans nos salles virtuelles ou découvrez nos œuvres emblématiques.
-        </p>
-        <div className="flex flex-col md:flex-row gap-4">
-        <Link
-    to="/visite-virtuelle/1"
-    className="bg-white text-orange-500 font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 flex items-center gap-2"
-  >
-    Entrer en immersion
-    <ArrowRight size={20} />
-  </Link>
+      
+      <header className="relative w-full h-[50vh] md:h-[60vh] flex flex-col justify-center items-center text-center md:text-left overflow-hidden bg-gradient-to-br from-amber-100 via-gray-300 to-gray-100">
+  {/* Formes abstraites / blobs élégantes */}
+  <div className="absolute -top-16 -left-16 w-72 h-72 bg-amber-300 rounded-full opacity-30 blur-3xl animate-blob"></div>
+  <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-yellow-400 rounded-full opacity-25 blur-3xl animate-blob animation-delay-2000"></div>
+  <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-gray-300 rounded-full opacity-20 blur-2xl animate-blob animation-delay-4000"></div>
 
-  <Link
-    to="/decouvrir"
-    className="bg-orange-700 hover:bg-orange-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition-all transform hover:scale-105 flex items-center gap-2"
-  >
-    Découvrir les œuvres
-    <ArrowRight size={20} />
-  </Link>
-        </div>
-      </header>
+  {/* Contenu */}
+  <div className="relative z-10 px-4 sm:px-6 md:px-20 flex flex-col justify-center items-center md:items-start">
+    <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-4 sm:mb-6 text-gray-800 drop-shadow-lg animate-fadeInUp">
+      Bienvenue au Musée Virtuel
+    </h1>
+    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 max-w-xl text-gray-700 drop-shadow-md animate-fadeInUp delay-200">
+      Explorez l’art comme jamais auparavant. Plongez dans nos salles virtuelles ou découvrez nos œuvres emblématiques.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 animate-fadeInUp delay-400">
+    <Link
+  to="/visite-virtuelle/1"
+  className="relative bg-white text-amber-600 font-semibold px-6 py-2 sm:px-8 sm:py-3 rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-110 hover:shadow-[0_0_40px_#FFBF00] flex items-center gap-2 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-lg before:bg-gradient-to-r before:from-amber-300 before:via-yellow-200 before:to-amber-300 before:opacity-0 before:blur-xl before:transition-all before:duration-500 hover:before:opacity-50"
+>
+  Entrer en immersion
+  <ArrowRight size={20} />
+</Link>
+
+<Link
+  to="/decouvrir"
+  className="relative bg-amber-600 text-white font-semibold px-6 py-2 sm:px-8 sm:py-3 rounded-lg shadow-lg overflow-hidden transition-all transform hover:scale-110 hover:shadow-[0_0_40px_#FFD700] flex items-center gap-2 before:absolute before:top-0 before:left-0 before:w-full before:h-full before:rounded-lg before:bg-gradient-to-r before:from-yellow-400 before:via-amber-500 before:to-yellow-400 before:opacity-0 before:blur-xl before:transition-all before:duration-500 hover:before:opacity-50"
+>
+  Découvrir les œuvres
+  <ArrowRight size={20} />
+</Link>
+
+    </div>
+  </div>
+</header>
+
+
+
+
+
 
       {/* Section œuvres */}
       <section className="py-16 px-6 md:px-20">
@@ -88,11 +103,6 @@ const HomePage = () => {
           ))}
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-100 py-8 mt-auto text-center text-gray-600">
-        &copy; {new Date().getFullYear()} Musée Virtuel. Tous droits réservés.
-      </footer>
     </div>
   );
 };

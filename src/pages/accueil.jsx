@@ -140,8 +140,8 @@ function ExperienceSection() {
             Trois façons de découvrir notre patrimoine culturel
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-4 md:gap-8">
+        
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {experiences.map((exp, index) => {
             const Icon = exp.icon;
             return (
@@ -168,7 +168,7 @@ function ExperienceSection() {
             );
           })}
         </div>
-      </div>
+   
     </section>
   );
 }
@@ -292,20 +292,20 @@ function HistorySection() {
 
         {/* Statistiques animées */}
         <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300">
-                <div className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 transition-all duration-1000 group-hover:scale-110 ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}
-                     style={{ transitionDelay: `${index * 200}ms` }}>
-                  {}{stat.suffix}
-                </div>
-                <div className="text-lg font-semibold text-gray-800  group-hover:text-orange-600 transition-colors duration-300">
-                  {stat.label}
-                </div>
-              </div>
-            </div>
-          ))}
+  {stats.map((stat, index) => (
+    <div key={index} className="text-center group">
+      <div className={`bg-white rounded-2xl p-8 hover:shadow-lg transition-all duration-300`}>
+        <div className={`text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 transition-all duration-1000 ${isVisible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-8'}`}
+             style={{ transitionDelay: `${index * 200}ms` }}>
+          {isVisible && <CountUp end={stat.number} suffix={stat.suffix} />}
         </div>
+        <div className="text-lg font-semibold text-gray-800 group-hover:text-orange-600 transition-colors duration-300">
+          {stat.label}
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
       </div>
     </section>
   );
