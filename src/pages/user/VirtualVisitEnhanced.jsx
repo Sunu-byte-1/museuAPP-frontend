@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import mockData from '../../data/musee1.json';
+import mockData from '../../../public/panoramas';
 import { 
   Home, 
   Map, 
